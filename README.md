@@ -1,0 +1,2 @@
+# SCC-projeto
+Projeto SCC

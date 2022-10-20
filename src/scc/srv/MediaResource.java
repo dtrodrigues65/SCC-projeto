@@ -12,7 +12,10 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response.Status;
+
 import com.azure.core.util.BinaryData;
 import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
@@ -30,7 +33,6 @@ public class MediaResource {
 	//String storageConnectionString = System.getenv("BlobStoreConnection");
 	BlobContainerClient containerClient = new BlobContainerClientBuilder().connectionString(storageConnectionString).containerName("images").buildClient();
 
-	// Map<String, byte[]> map = new HashMap<String, byte[]>();
 
 	/**
 	 * Post a new image.The id of the image is its hash.
@@ -44,7 +46,6 @@ public class MediaResource {
 		try {
 			BinaryData data = BinaryData.fromBytes(contents);
 			BlobClient blob = containerClient.getBlobClient(key+".jpeg");
-			//BlobClient blob = containerClient.getBlobClient(key);
 			blob.upload(data);
 			System.out.println("File updloaded : file" + key);
 
@@ -63,17 +64,17 @@ public class MediaResource {
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public byte[] download(@PathParam("id") String id) {
-		//BlobClient blob = containerClient.getBlobClient(id+".jpeg");
-		BlobClient blob = containerClient.getBlobClient(id);
-		BinaryData data = blob.downloadContent();
-		byte[] arr = data.toBytes();
-		
+		BinaryData data = null;
 		try {
-
-		} catch (NotFoundException e) {
-			System.out.println("Not found");
+			BlobClient blob = containerClient.getBlobClient(id);
+			data = blob.downloadContent();
+		} //catch (NotFoundException e) {
+		//	System.out.println("Not found");
+		//}
+		 catch(Exception e){
+			throw new WebApplicationException(Status.NOT_FOUND);
 		}
-		return arr;
+		return data.toBytes();
 	}
 
 	/**

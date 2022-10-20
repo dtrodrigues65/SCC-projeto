@@ -3,9 +3,7 @@ package scc.srv;
 import scc.utils.Hash;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -15,14 +13,24 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import com.azure.core.util.BinaryData;
+import com.azure.storage.blob.BlobClient;
+import com.azure.storage.blob.BlobContainerClient;
+import com.azure.storage.blob.BlobContainerClientBuilder;
+import com.azure.storage.blob.models.BlobItem;
+
 
 /**
  * Resource for managing media files, such as images.
  */
 @Path("/media")
-public class MediaResource
-{
-	Map<String,byte[]> map = new HashMap<String,byte[]>();
+public class MediaResource {
+
+	String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=scctp1storage;AccountKey=QqhHmfz4oH+OgB7vZ26+2VvzoqlqoV7zJt1ioGy36D5zyKJMf5iyjKp/nBx1+iQJX9zZ/378/SJA+AStSmShug==;EndpointSuffix=core.windows.net";
+	//String storageConnectionString = System.getenv("BlobStoreConnection");
+	BlobContainerClient containerClient = new BlobContainerClientBuilder().connectionString(storageConnectionString).containerName("images").buildClient();
+
+	// Map<String, byte[]> map = new HashMap<String, byte[]>();
 
 	/**
 	 * Post a new image.The id of the image is its hash.
@@ -33,20 +41,39 @@ public class MediaResource
 	@Produces(MediaType.APPLICATION_JSON)
 	public String upload(byte[] contents) {
 		String key = Hash.of(contents);
-		map.put( key, contents);
+		try {
+			BinaryData data = BinaryData.fromBytes(contents);
+			BlobClient blob = containerClient.getBlobClient(key+".jpeg");
+			//BlobClient blob = containerClient.getBlobClient(key);
+			blob.upload(data);
+			System.out.println("File updloaded : file" + key);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return key;
+
 	}
 
 	/**
-	 * Return the contents of an image. Throw an appropriate error message if
-	 * id does not exist.
+	 * Return the contents of an image. Throw an appropriate error message if id
+	 * does not exist.
 	 */
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public byte[] download(@PathParam("id") String id) {
-		//throw new ServiceUnavailableException();
-		return null;
+		//BlobClient blob = containerClient.getBlobClient(id+".jpeg");
+		BlobClient blob = containerClient.getBlobClient(id);
+		BinaryData data = blob.downloadContent();
+		byte[] arr = data.toBytes();
+		
+		try {
+
+		} catch (NotFoundException e) {
+			System.out.println("Not found");
+		}
+		return arr;
 	}
 
 	/**
@@ -56,6 +83,12 @@ public class MediaResource
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<String> list() {
-		return new ArrayList<String>( map.keySet());
+		List<String> aux = new ArrayList<String>();
+		for (BlobItem blobItem : containerClient.listBlobs()) {
+			System.out.println("\t" + blobItem.getName());
+			aux.add(blobItem.getName());
+		}
+		return aux;
 	}
+
 }

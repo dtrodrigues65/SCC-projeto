@@ -14,7 +14,7 @@ import com.azure.cosmos.util.CosmosPagedIterable;
 public class CosmosDBLayer {
 	private static final String CONNECTION_URL = "https://scctp1cosmosdb.documents.azure.com:443/";
 	private static final String DB_KEY = "aRQeHIFXAlwba2rPs34mPitOB98ALBOyPnlbAmZbPjDyT6d4KIRgKqJHOhABaXixhqdRUybgue37JR4ve95GLw==";
-	private static final String DB_NAME = "scctp1bd";
+	private static final String DB_NAME = "scctp1db";
 	
 	private static CosmosDBLayer instance;
 

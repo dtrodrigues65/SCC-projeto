@@ -1,0 +1,31 @@
+config:
+  target: 'https://scc-backend-56153-55185-55226.azurewebsites.net/rest'
+  plugins:
+    metrics-by-endpoint: {}
+  processor: "./test-utils.js"
+  variables:
+     metricsProcessEndpoint : "myProcessEndpoint"  # function used to aggregate endpoints for statistics
+  phases:
+  - name: "Delete users"    # Delete users
+    duration: 1
+    arrivalCount: 1
+
+scenarios:
+  - name: 'Delete users'
+    weight: 1
+    flow:
+      - loop:                            # let's delete 5 users - loop ... count
+        - function: "delUser"            # Delete the user
+        - delete:
+            url: "/user"
+            headers:
+              Content-Type: application/json
+              Accept: application/json
+            json:
+              id: "{{ id }}"
+              name: "{{ name }}"
+              pwd: "{{ pwd }}"
+              photoId: "{{ imageId }}"
+              channelIds: []
+            afterResponse: "delUserReply"    # capture result and store in file
+        count: 2

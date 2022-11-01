@@ -5,8 +5,11 @@
  */
 module.exports = {
   uploadImageBody,
+  processUploadReply,
   genNewUser,
-  genNewUserReply
+  genNewUserReply,
+  delUser,
+  delUserReply
 }
 
 
@@ -130,6 +133,25 @@ function genNewUserReply(requestParams, response, context, ee, next) {
 		fs.writeFileSync('users.data', JSON.stringify(users));
 	}
     return next()
+}
+
+function delUser(context,events,done){
+	let u = users.sample()
+	context.vars.id = u.id
+	context.vars.name = u.name
+	context.vars.pwd = u.pwd
+	return done()	
+}
+
+function delUserReply(requestParams, response, context, ee, next){
+	if( response.statusCode >= 200 && response.statusCode < 300)  { //aqui falta content lenght
+		let u = JSON.parse( response.body)
+		let index = users.indexOf(u)		
+		users.splice(index)
+		fs.writeFileSync('users.data', JSON.stringify(users));
+			
+	}
+	return next()	
 }
 
 

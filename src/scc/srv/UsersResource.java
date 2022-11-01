@@ -26,13 +26,22 @@ public class UsersResource{
 	}
 
 
-	//mudar depois o que for preciso
-	@DELETE
+	//este metodo e para apagar com id se for preciso
+	/*@DELETE
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public UserDAO delUserById(@PathParam("id") String id) {
 		//UserDAO user = CosmosDBLayer.getInstance().getUserById(id).iterator().next();
 		return (UserDAO) CosmosDBLayer.getInstance().delUserById(id).getItem();
+	}*/
+
+	@DELETE
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public UserDAO delUser(UserDAO user) {
+		CosmosDBLayer.getInstance().delUser(user).getItem();
+		return user;
 	}
 
 }

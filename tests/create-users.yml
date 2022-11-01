@@ -24,6 +24,7 @@ scenarios:
             capture: 
               regexp: "(.+)"
               as: "imageId"              # capture the reply as image id to be used in user creation
+            afterResponse: "processUploadReply"
         - function: "genNewUser"         # Generate the needed information for the user
         - post:
             url: "/user"

@@ -5,6 +5,7 @@ import scc.data.*;
 
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -42,6 +43,15 @@ public class UsersResource{
 	public UserDAO delUser(UserDAO user) {
 		CosmosDBLayer.getInstance().delUser(user).getItem();
 		return user;
+	}
+
+	@PUT
+	@Path("/{id}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public UserDAO updateUser(@PathParam("id") String id, UserDAO updatedUser) {
+		CosmosItemResponse<UserDAO> res = CosmosDBLayer.getInstance().updateUser(id, updatedUser);
+		return res.getItem();
 	}
 
 }

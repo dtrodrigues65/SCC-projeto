@@ -79,6 +79,14 @@ public class CosmosDBLayer {
 		return users.queryItems("SELECT * FROM users ", new CosmosQueryRequestOptions(), UserDAO.class);
 	}
 
+	
+	public CosmosItemResponse<UserDAO> updateUser(String id, UserDAO updatedUser) {
+		init();
+		UserDAO user = getUserById(id).iterator().next();
+		delUser(user);
+		return putUser(updatedUser);
+	}
+
 	public void close() {
 		client.close();
 	}

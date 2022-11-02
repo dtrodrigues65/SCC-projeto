@@ -144,7 +144,7 @@ function delUser(context,events,done){
 }
 
 function delUserReply(requestParams, response, context, ee, next){
-	if( response.statusCode >= 200 && response.statusCode < 300)  { //aqui falta content lenght
+	if( response.statusCode >= 200 && response.statusCode < 300 && response.body.length > 0)  { 
 		let u = JSON.parse( response.body)
 		let index = users.indexOf(u)		
 		users.splice(index)

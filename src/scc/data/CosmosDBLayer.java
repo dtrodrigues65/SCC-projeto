@@ -94,6 +94,12 @@ public class CosmosDBLayer {
 		return auctions.createItem(auction);
 	}
 
+	public CosmosItemResponse<AuctionDAO> updateAuction(AuctionDAO auction) {
+		init();
+		PartitionKey key = new PartitionKey(auction.getId());
+        return auctions.replaceItem(auction, auction.getId(), key, new CosmosItemRequestOptions());
+	}
+
 	public void close() {
 		client.close();
 	}

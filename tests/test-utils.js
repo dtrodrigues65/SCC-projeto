@@ -9,12 +9,14 @@ module.exports = {
   genNewUser,
   genNewUserReply,
   delUser,
-  delUserReply
+  delUserReply,
+  updateUser,
+  updateUserReply
 }
 
 
 const Faker = require('faker')
-const fs = require('fs')
+const fs = require('fs');
 
 var imagesIds = []
 var images = []
@@ -152,6 +154,39 @@ function delUserReply(requestParams, response, context, ee, next){
 			
 	}
 	return next()	
+}
+
+
+function findUser( id){
+	for( var u of users) {
+		if( u.id === id)
+			return u;
+	}
+	return null
+}
+
+
+function updateUser(context,events,done) {
+	const first = `${Faker.name.firstName()}`
+	const last = `${Faker.name.lastName()}`
+	let u = users.sample()
+	context.vars.id = u.id
+	context.vars.name = first + " " + last
+	context.vars.pwd = `${Faker.internet.password()}`
+	context.vars.imageId = u.photoId
+	return done()
+}
+
+function updateUserReply(requestParams, response, context, ee, next) {
+	if( response.statusCode >= 200 && response.statusCode < 300 && response.body.length > 0)  {
+		let u0 = findUser(context.vars.id)
+		let index = users.indexOf(u0)		
+		users.splice(index, 1)
+		let u = JSON.parse( response.body)
+		users.push(u)
+		fs.writeFileSync('users.data', JSON.stringify(users));
+	}
+    return next()
 }
 
 

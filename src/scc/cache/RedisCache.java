@@ -6,7 +6,8 @@ import jakarta.ws.rs.BadRequestException;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
-import scc.data.UserDAO;
+import scc.data.*;
+
 
 public class RedisCache {
 	private static final String RedisHostname = "scctp1cache.redis.cache.windows.net";
@@ -42,6 +43,23 @@ public class RedisCache {
 	public synchronized static void removeUserFromCache (String id) {
 		try (Jedis jedis = RedisCache.getCachePool().getResource()) {
 			jedis.del("user:" + id);
+		} catch (Exception e) {
+			throw new BadRequestException();
+		}
+	}
+
+	public synchronized static void addAuctionToCache (AuctionDAO auction) {
+		ObjectMapper mapper = new ObjectMapper();
+		try (Jedis jedis = RedisCache.getCachePool().getResource()) {
+			jedis.set("auction:"+ auction.getId(), mapper.writeValueAsString(auction));
+		} catch (Exception e) {
+			throw new BadRequestException();
+		}
+	}
+
+	public synchronized static void removeAuctionFromCache (String id) {
+		try (Jedis jedis = RedisCache.getCachePool().getResource()) {
+			jedis.del("auction:" + id);
 		} catch (Exception e) {
 			throw new BadRequestException();
 		}

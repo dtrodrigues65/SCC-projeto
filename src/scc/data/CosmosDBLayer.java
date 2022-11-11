@@ -110,12 +110,21 @@ public class CosmosDBLayer {
 	//isto vai precsiar de cache 
 	public CosmosItemResponse<AuctionDAO> putAuction(AuctionDAO auction) {
 		init();
+		try{
+			RedisCache.addAuctionToCache(auction);
+		}catch(Exception e){
+		}
 		return auctions.createItem(auction);
 	}
 
 	//isto tambem
 	public CosmosItemResponse<AuctionDAO> updateAuction(AuctionDAO auction) {
 		init();
+		try{
+			RedisCache.removeAuctionFromCache(auction.getId());
+			RedisCache.addAuctionToCache(auction);
+		}catch(Exception e){
+		}
 		PartitionKey key = new PartitionKey(auction.getId());
         return auctions.replaceItem(auction, auction.getId(), key, new CosmosItemRequestOptions());
 	}

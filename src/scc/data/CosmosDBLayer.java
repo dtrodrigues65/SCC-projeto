@@ -81,12 +81,11 @@ public class CosmosDBLayer {
 		return users.queryItems("SELECT * FROM users ", new CosmosQueryRequestOptions(), UserDAO.class);
 	}
 
-	
-	public CosmosItemResponse<UserDAO> updateUser(String id, UserDAO updatedUser) {
+
+	public CosmosItemResponse<UserDAO> updateUser(UserDAO user) {
 		init();
-		UserDAO user = getUserById(id).iterator().next();
-		delUser(user);
-		return putUser(updatedUser);
+		PartitionKey key = new PartitionKey(user.getId());
+		return users.replaceItem(user, user.getId(), key, new CosmosItemRequestOptions());
 	}
 
 	public CosmosItemResponse<AuctionDAO> putAuction(AuctionDAO auction) {

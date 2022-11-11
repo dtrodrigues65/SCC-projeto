@@ -30,7 +30,7 @@ public class AuctionResource {
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public AuctionDAO updateChannel( AuctionDAO auction) {
+	public AuctionDAO updateAuction( AuctionDAO auction) {
 		return CosmosDBLayer.getInstance().updateAuction(auction).getItem();
 	}
 }

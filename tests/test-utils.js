@@ -11,7 +11,7 @@ module.exports = {
   delUser,
   delUserReply,
   updateUser,
-  updateUserReply
+  updateUserReply,
 }
 
 

@@ -17,7 +17,7 @@ scenarios:
       - loop:                            # let's update 5 users - loop ... count
         - function: "updateUser"            # Update the user
         - put:
-            url: "/user/{{id}}"
+            url: "/user"
             headers:
               Content-Type: application/json
               Accept: application/json

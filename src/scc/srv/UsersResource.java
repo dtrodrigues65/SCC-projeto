@@ -9,6 +9,7 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.PATCH;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.PathParam;
 
@@ -26,16 +27,6 @@ public class UsersResource{
 		return CosmosDBLayer.getInstance().putUser(user).getItem();
 	}
 
-
-	//este metodo e para apagar com id se for preciso
-	/*@DELETE
-	@Path("/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public UserDAO delUserById(@PathParam("id") String id) {
-		//UserDAO user = CosmosDBLayer.getInstance().getUserById(id).iterator().next();
-		return (UserDAO) CosmosDBLayer.getInstance().delUserById(id).getItem();
-	}*/
-
 	@DELETE
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -46,11 +37,11 @@ public class UsersResource{
 	}
 
 	@PUT
-	@Path("/{id}")
+	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public UserDAO updateUser(@PathParam("id") String id, UserDAO updatedUser) {
-		CosmosItemResponse<UserDAO> res = CosmosDBLayer.getInstance().updateUser(id, updatedUser);
+	public UserDAO updateUser(UserDAO user) {
+		CosmosItemResponse<UserDAO> res = CosmosDBLayer.getInstance().updateUser(user);
 		return res.getItem();
 	}
 

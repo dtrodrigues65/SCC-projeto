@@ -9,7 +9,11 @@ import jakarta.ws.rs.Produces;
 
 import java.util.UUID;
 
+
+import com.azure.cosmos.models.CosmosItemResponse;
+
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.PathParam;
 
@@ -23,7 +27,8 @@ public class AuctionResource {
     public AuctionDAO putAuction(AuctionDAO auction) {
         String uid = UUID.randomUUID().toString();
         auction.setId(uid);
-        return CosmosDBLayer.getInstance().putAuction(auction).getItem();
+        CosmosItemResponse<AuctionDAO> res = resAuction (CosmosDBLayer.getInstance().putAuction(auction));
+        return res.getItem();
     }
 
     @PUT
@@ -31,6 +36,15 @@ public class AuctionResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public AuctionDAO updateAuction( AuctionDAO auction) {
-		return CosmosDBLayer.getInstance().updateAuction(auction).getItem();
+        CosmosItemResponse<AuctionDAO> res = resAuction (CosmosDBLayer.getInstance().updateAuction(auction));
+		return res.getItem();
+	}
+
+	private CosmosItemResponse<AuctionDAO> resAuction (CosmosItemResponse<AuctionDAO> res) {
+		if (res.getStatusCode() < 300) {
+			return res;
+		} else {
+			throw new NotFoundException();
+		} 
 	}
 }

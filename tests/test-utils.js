@@ -147,9 +147,10 @@ function delUser(context,events,done){
 
 function delUserReply(requestParams, response, context, ee, next){
 	if( response.statusCode >= 200 && response.statusCode < 300 && response.body.length > 0)  { 
-		let u = JSON.parse( response.body)
+		let u = JSON.parse(response.body)
+		u = findUser(u.id)
 		let index = users.indexOf(u)		
-		users.splice(index)
+		users.splice(index,1)
 		fs.writeFileSync('users.data', JSON.stringify(users));
 			
 	}
@@ -183,6 +184,7 @@ function updateUserReply(requestParams, response, context, ee, next) {
 		let index = users.indexOf(u0)		
 		users.splice(index, 1)
 		let u = JSON.parse( response.body)
+		console.log(u) //APAGARRRRRRRRRRRRRRR
 		users.push(u)
 		fs.writeFileSync('users.data', JSON.stringify(users));
 	}

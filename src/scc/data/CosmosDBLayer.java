@@ -11,6 +11,8 @@ import com.azure.cosmos.models.CosmosQueryRequestOptions;
 import com.azure.cosmos.models.PartitionKey;
 import com.azure.cosmos.util.CosmosPagedIterable;
 
+import scc.cache.RedisCache;
+
 public class CosmosDBLayer {
 	private static final String CONNECTION_URL = "https://scctp1cosmosdb.documents.azure.com:443/";
 	private static final String DB_KEY = "aRQeHIFXAlwba2rPs34mPitOB98ALBOyPnlbAmZbPjDyT6d4KIRgKqJHOhABaXixhqdRUybgue37JR4ve95GLw==";
@@ -55,44 +57,63 @@ public class CosmosDBLayer {
 		
 	}
 
+	/* 
 	public CosmosItemResponse<Object> delUserById(String id) {
 		init();
 		PartitionKey key = new PartitionKey( id);
 		return users.deleteItem(id, key, new CosmosItemRequestOptions());
 	}
-	
+	*/
+
 	public CosmosItemResponse<Object> delUser(UserDAO user) {
 		init();
+		try{
+            RedisCache.removeUserFromCache(user.getId());
+        }catch(Exception e){
+        }
 		return users.deleteItem(user, new CosmosItemRequestOptions());
 	}
 	
 	public CosmosItemResponse<UserDAO> putUser(UserDAO user) {
 		init();
+		try{
+            RedisCache.addUserToCache(user);
+        }catch(Exception e){
+        }
 		return users.createItem(user);
 	}
 	
+	/* podemos precisar depois com cache
 	public CosmosPagedIterable<UserDAO> getUserById( String id) {
 		init();
 		return users.queryItems("SELECT * FROM users WHERE users.id=\"" + id + "\"", new CosmosQueryRequestOptions(), UserDAO.class);
 	}
-
+	
 	public CosmosPagedIterable<UserDAO> getUsers() {
 		init();
 		return users.queryItems("SELECT * FROM users ", new CosmosQueryRequestOptions(), UserDAO.class);
 	}
-
+	*/
 
 	public CosmosItemResponse<UserDAO> updateUser(UserDAO user) {
 		init();
+		try{
+			RedisCache.removeUserFromCache(user.getId());
+            RedisCache.addUserToCache(user);
+        }catch(Exception e){
+        }
 		PartitionKey key = new PartitionKey(user.getId());
 		return users.replaceItem(user, user.getId(), key, new CosmosItemRequestOptions());
 	}
 
+
+	//isto vai precsiar de cache 
 	public CosmosItemResponse<AuctionDAO> putAuction(AuctionDAO auction) {
 		init();
 		return auctions.createItem(auction);
 	}
 
+	//isto tambem
 	public CosmosItemResponse<AuctionDAO> updateAuction(AuctionDAO auction) {
 		init();
 		PartitionKey key = new PartitionKey(auction.getId());

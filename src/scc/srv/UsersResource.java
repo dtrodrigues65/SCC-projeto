@@ -9,6 +9,7 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.PATCH;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.PathParam;
@@ -24,7 +25,8 @@ public class UsersResource{
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public UserDAO putUser(UserDAO user) {
-		return CosmosDBLayer.getInstance().putUser(user).getItem();
+		CosmosItemResponse<UserDAO> res = resUser(CosmosDBLayer.getInstance().putUser(user));
+		return res.getItem(); 
 	}
 
 	@DELETE
@@ -32,7 +34,7 @@ public class UsersResource{
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public UserDAO delUser(UserDAO user) {
-		CosmosDBLayer.getInstance().delUser(user).getItem();
+		resObject(CosmosDBLayer.getInstance().delUser(user));
 		return user;
 	}
 
@@ -41,8 +43,26 @@ public class UsersResource{
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public UserDAO updateUser(UserDAO user) {
-		CosmosItemResponse<UserDAO> res = CosmosDBLayer.getInstance().updateUser(user);
+		CosmosItemResponse<UserDAO> res = resUser(CosmosDBLayer.getInstance().updateUser(user));
 		return res.getItem();
+	}
+
+
+
+	private CosmosItemResponse<Object> resObject (CosmosItemResponse<Object> res) {
+		if (res.getStatusCode() < 300) {
+			return res;
+		} else {
+			throw new NotFoundException();
+		} 
+	}
+
+	private CosmosItemResponse<UserDAO> resUser (CosmosItemResponse<UserDAO> res) {
+		if (res.getStatusCode() < 300) {
+			return res;
+		} else {
+			throw new NotFoundException();
+		} 
 	}
 
 }

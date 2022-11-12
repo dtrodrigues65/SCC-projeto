@@ -11,6 +11,7 @@ import com.azure.cosmos.models.CosmosQueryRequestOptions;
 import com.azure.cosmos.models.PartitionKey;
 import com.azure.cosmos.util.CosmosPagedIterable;
 
+import jakarta.ws.rs.NotFoundException;
 import scc.cache.RedisCache;
 
 public class CosmosDBLayer {
@@ -82,13 +83,24 @@ public class CosmosDBLayer {
         }
 		return users.createItem(user);
 	}
-	
-	/* podemos precisar depois com cache
-	public CosmosPagedIterable<UserDAO> getUserById( String id) {
+
+	public UserDAO getUserById(String id) {
 		init();
-		return users.queryItems("SELECT * FROM users WHERE users.id=\"" + id + "\"", new CosmosQueryRequestOptions(), UserDAO.class);
+		UserDAO user = null;
+		try{
+			user = RedisCache.getUserFromCache(id);
+		}catch(Exception e){
+			CosmosPagedIterable<UserDAO> u = users.queryItems("SELECT * FROM users WHERE users.id=\"" + id + "\"", new CosmosQueryRequestOptions(), UserDAO.class);
+			try{
+				user = u.iterator().next();
+			}catch(Exception e2){
+				throw new NotFoundException();
+			}
+			RedisCache.addUserToCache(user);
+		}
+		return user;
 	}
-	
+	/*
 	public CosmosPagedIterable<UserDAO> getUsers() {
 		init();
 		return users.queryItems("SELECT * FROM users ", new CosmosQueryRequestOptions(), UserDAO.class);

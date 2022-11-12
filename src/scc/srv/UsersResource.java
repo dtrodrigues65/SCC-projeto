@@ -1,20 +1,23 @@
 package scc.srv;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.NewCookie;
+import jakarta.ws.rs.core.Response;
+import redis.clients.jedis.Jedis;
+import scc.cache.RedisCache;
 import scc.data.*;
 
 
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.NotFoundException;
-import jakarta.ws.rs.PATCH;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.PathParam;
 
 import com.azure.cosmos.models.CosmosItemResponse;
+import scc.utils.Login;
+import scc.utils.Session;
+
+import java.util.UUID;
+
+import static scc.cache.RedisCache.putSession;
 
 
 @Path("/user")
@@ -63,6 +66,32 @@ public class UsersResource{
 		} else {
 			throw new NotFoundException();
 		} 
+	}
+
+	@POST
+	@Path("/auth")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response auth(Login user){
+		boolean pwdOk = false;
+		UserDAO u = CosmosDBLayer.getInstance().getUserById(user.getUser());
+		if(u.getPwd().equals(user.getPwd())){
+			pwdOk = true;
+		}
+		if(pwdOk){
+			String uid = UUID.randomUUID().toString();
+			NewCookie cookie = new NewCookie.Builder("scc:session")
+					.value(uid)
+					.path("/")
+					.comment("sessionid")
+					.maxAge(3600)
+					.secure(false)
+					.httpOnly(true)
+					.build();
+			putSession(cookie, new Session(uid, user.getUser()));
+			return Response.ok().cookie(cookie).build();
+		}else{
+			throw new NotAuthorizedException("Incorrect login");
+		}
 	}
 
 }

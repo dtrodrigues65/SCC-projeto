@@ -119,7 +119,7 @@ public class CosmosDBLayer {
 	}
 
 
-	//isto vai precsiar de cache 
+	
 	public CosmosItemResponse<AuctionDAO> putAuction(AuctionDAO auction) {
 		init();
 		try{
@@ -129,7 +129,7 @@ public class CosmosDBLayer {
 		return auctions.createItem(auction);
 	}
 
-	//isto tambem
+	
 	public CosmosItemResponse<AuctionDAO> updateAuction(AuctionDAO auction) {
 		init();
 		try{

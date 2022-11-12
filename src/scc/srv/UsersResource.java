@@ -7,8 +7,7 @@ import jakarta.ws.rs.core.Response;
 import redis.clients.jedis.Jedis;
 import scc.cache.RedisCache;
 import scc.data.*;
-
-
+import jakarta.ws.rs.core.Cookie;
 import jakarta.ws.rs.core.MediaType;
 
 import com.azure.cosmos.models.CosmosItemResponse;
@@ -16,8 +15,6 @@ import scc.utils.Login;
 import scc.utils.Session;
 
 import java.util.UUID;
-
-import static scc.cache.RedisCache.putSession;
 
 
 @Path("/user")
@@ -50,24 +47,6 @@ public class UsersResource{
 		return res.getItem();
 	}
 
-
-
-	private CosmosItemResponse<Object> resObject (CosmosItemResponse<Object> res) {
-		if (res.getStatusCode() < 300) {
-			return res;
-		} else {
-			throw new NotFoundException();
-		} 
-	}
-
-	private CosmosItemResponse<UserDAO> resUser (CosmosItemResponse<UserDAO> res) {
-		if (res.getStatusCode() < 300) {
-			return res;
-		} else {
-			throw new NotFoundException();
-		} 
-	}
-
 	@POST
 	@Path("/auth")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -87,11 +66,44 @@ public class UsersResource{
 					.secure(false)
 					.httpOnly(true)
 					.build();
-			putSession(cookie, new Session(uid, user.getUser()));
+			RedisCache.putSession(cookie, new Session(uid, user.getUser()));
 			return Response.ok().cookie(cookie).build();
 		}else{
 			throw new NotAuthorizedException("Incorrect login");
 		}
+	}
+
+	
+	private CosmosItemResponse<Object> resObject (CosmosItemResponse<Object> res) {
+		if (res.getStatusCode() < 300) {
+			return res;
+		} else {
+			throw new NotFoundException();
+		} 
+	}
+
+	private CosmosItemResponse<UserDAO> resUser (CosmosItemResponse<UserDAO> res) {
+		if (res.getStatusCode() < 300) {
+			return res;
+		} else {
+			throw new NotFoundException();
+		} 
+	}
+
+	public static Session checkCookieUser(Cookie session, String id) throws NotAuthorizedException {
+		if (session == null || session.getValue() == null)
+			throw new NotAuthorizedException("No session initialized");
+		Session s;
+		try {
+			s = RedisCache.getSession(session.getValue());
+		} catch (Exception e) {
+			throw new NotAuthorizedException("No valid session initialized");
+		}
+		if (s == null || s.getUser() == null || s.getUser().length() == 0)
+			throw new NotAuthorizedException("No valid session initialized");
+		if (!s.getUser().equals(id))
+			throw new NotAuthorizedException("Invalid user : " + s.getUser());
+		return s;
 	}
 
 }

@@ -4,14 +4,16 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.ws.rs.BadRequestException;
+import jakarta.ws.rs.NotAuthorizedException;
 import jakarta.ws.rs.NotFoundException;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import scc.data.*;
 import scc.utils.Session;
-
+import jakarta.ws.rs.core.Cookie;
 import jakarta.ws.rs.core.NewCookie;
+
 
 
 public class RedisCache {
@@ -87,4 +89,16 @@ public class RedisCache {
 			throw new BadRequestException();
 		}
 	}
+
+	public synchronized static Session getSession (String s) {
+		ObjectMapper mapper = new ObjectMapper();
+		try (Jedis jedis = RedisCache.getCachePool().getResource()) {
+			return mapper.readValue(jedis.get(s), Session.class);
+		} catch (Exception e) {
+			throw new NotFoundException();
+		}
+	}
+
+
+ 
 }

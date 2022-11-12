@@ -12,6 +12,9 @@ module.exports = {
   delUserReply,
   updateUser,
   updateUserReply,
+  selectUserSkewed,
+  genNewAuction,
+  updateAuction
 }
 
 
@@ -43,9 +46,19 @@ Array.prototype.sample = function(){
 	   return this[Math.floor(Math.random()*this.length)]
 }
 
+Array.prototype.sampleSkewed = function(){
+	return this[randomSkewed(this.length)]
+}
+
 // Returns a random value, from 0 to val
 function random( val){
 	return Math.floor(Math.random() * val)
+}
+
+function randomSkewed( val){
+	let beta = Math.pow(Math.sin(Math.random()*Math.PI/2),2)
+	let beta_left = (beta < 0.5) ? 2*beta : 2*(1-beta);
+	return Math.floor(beta_left * val)
 }
 
 // Loads data about images from disk
@@ -190,6 +203,45 @@ function updateUserReply(requestParams, response, context, ee, next) {
 	}
     return next()
 }
+
+function selectUserSkewed(context, events, done) {
+	if( users.length > 0) {
+		let user = users.sampleSkewed()
+		context.vars.user = user.id
+		context.vars.pwd = user.pwd
+	} else {
+		delete context.vars.user
+		delete context.vars.pwd
+	}
+	return done()
+}
+
+function genNewAuction(context, events, done) {
+	context.vars.title = `${Faker.commerce.productName()}`
+	context.vars.description = `${Faker.commerce.productDescription()}`
+	context.vars.minimumPrice = `${Faker.commerce.price()}`
+	context.vars.bidValue = context.vars.minimumPrice + random(3)
+	//var maxBids = 5
+	//if( typeof context.vars.maxBids !== 'undefined')
+	//	maxBids = context.vars.maxBids;
+	//var maxQuestions = 2
+	//if( typeof context.vars.maxQuestions !== 'undefined')
+	//	maxQuestions = context.vars.maxQuestions;
+	var d = new Date();
+	d.setTime(Date.now() + random( 300000));
+	context.vars.endTime = d.toISOString();
+	//if( Math.random() > 0.2) { 
+		context.vars.status = "OPEN";
+		//context.vars.numBids = random( maxBids);
+		//context.vars.numQuestions = random( maxQuestions);
+	//} else {
+	//	context.vars.status = "CLOSED";
+	//	delete context.vars.numBids;
+	//	delete context.vars.numQuestions;
+	//}
+	return done()
+}
+
 
 
 

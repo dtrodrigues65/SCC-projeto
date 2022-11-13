@@ -1,5 +1,6 @@
 package scc.srv;
 
+import com.azure.storage.blob.models.BlobItem;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.NewCookie;
@@ -14,6 +15,9 @@ import com.azure.cosmos.models.CosmosItemResponse;
 import scc.utils.Login;
 import scc.utils.Session;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 
@@ -61,6 +65,15 @@ public class UsersResource{
 			throw new BadRequestException();
 		}
 
+	}
+
+	@GET
+	@Path("/{id}/listAuctions")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Set<String> listAuctions(@PathParam("id") String id) {
+		UserDAO u = CosmosDBLayer.getInstance().getUserById(id);
+		Set<String> setAuctions = u.getAuctionsIds();
+		return setAuctions;
 	}
 
 	@POST

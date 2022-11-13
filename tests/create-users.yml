@@ -36,6 +36,6 @@ scenarios:
               name: "{{ name }}"
               pwd: "{{ pwd }}"
               photoId: "{{ imageId }}"
-              channelIds: []
+              auctionsIds: []
             afterResponse: "genNewUserReply"    # capture result and store in file
         count: 5

@@ -33,18 +33,34 @@ public class UsersResource{
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public UserDAO delUser(UserDAO user) {
-		resObject(CosmosDBLayer.getInstance().delUser(user));
-		return user;
+	public UserDAO delUser(@CookieParam("scc:session") Cookie session, UserDAO user) {
+		try {
+			checkCookieUser(session, user.getId());
+			resObject(CosmosDBLayer.getInstance().delUser(user));
+			return user;
+		} catch( NotAuthorizedException e) {
+			throw e;
+		} catch( Exception e) {
+			throw new BadRequestException();
+		}
+		
 	}
 
 	@PUT
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public UserDAO updateUser(UserDAO user) {
-		CosmosItemResponse<UserDAO> res = resUser(CosmosDBLayer.getInstance().updateUser(user));
-		return res.getItem();
+	public static UserDAO updateUser(@CookieParam("scc:session") Cookie session, UserDAO user) {
+		try {
+			checkCookieUser(session, user.getId());
+			CosmosItemResponse<UserDAO> res = resUser(CosmosDBLayer.getInstance().updateUser(user));
+			return res.getItem();
+		} catch( NotAuthorizedException e) {
+			throw e;
+		} catch( Exception e) {
+			throw new BadRequestException();
+		}
+
 	}
 
 	@POST
@@ -82,7 +98,7 @@ public class UsersResource{
 		} 
 	}
 
-	private CosmosItemResponse<UserDAO> resUser (CosmosItemResponse<UserDAO> res) {
+	private static CosmosItemResponse<UserDAO> resUser (CosmosItemResponse<UserDAO> res) {
 		if (res.getStatusCode() < 300) {
 			return res;
 		} else {

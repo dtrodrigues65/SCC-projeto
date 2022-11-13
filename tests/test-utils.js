@@ -8,13 +8,12 @@ module.exports = {
   processUploadReply,
   genNewUser,
   genNewUserReply,
-  delUser,
+ //delUser,
   delUserReply,
   updateUser,
   updateUserReply,
   selectUserSkewed,
   genNewAuction,
-  updateAuction
 }
 
 
@@ -150,13 +149,16 @@ function genNewUserReply(requestParams, response, context, ee, next) {
     return next()
 }
 
+//ELIMINAMOS ISTO PORQUE NAO ERA NECESSARIO
+/*
 function delUser(context,events,done){
-	let u = users.sample()
-	context.vars.id = u.id
-	context.vars.name = u.name
-	context.vars.pwd = u.pwd
+	console.log(context.vars.user)
+	//let u = users.sample()
+	//context.vars.id = u.id
+	//context.vars.name = u.name
+	//context.vars.pwd = u.pwd
 	return done()	
-}
+}*/
 
 function delUserReply(requestParams, response, context, ee, next){
 	if( response.statusCode >= 200 && response.statusCode < 300 && response.body.length > 0)  { 
@@ -183,10 +185,12 @@ function findUser( id){
 function updateUser(context,events,done) {
 	const first = `${Faker.name.firstName()}`
 	const last = `${Faker.name.lastName()}`
-	let u = users.sample()
-	context.vars.id = u.id
+	//let u = users.sample()
+	//context.vars.id = u.id
+	let u = findUser(context.vars.user)
 	context.vars.name = first + " " + last
-	context.vars.pwd = `${Faker.internet.password()}`
+	//AQUI NAO O DEIXAMOS MUDAR A PASS MAS PODE SER PRECISO
+	//context.vars.pwd = `${Faker.internet.password()}`
 	context.vars.imageId = u.photoId
 	return done()
 }

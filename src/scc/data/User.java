@@ -1,6 +1,8 @@
 package scc.data;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Represents a User, as returned to the clients
@@ -10,14 +12,14 @@ public class User {
 	private String name;
 	private String pwd;
 	private String photoId;
-	private String[] channelIds;
-	public User(String id, String name, String pwd, String photoId, String[] channelIds) {
+	private Set<String> auctionsIds;
+	public User(String id, String name, String pwd, String photoId, Set<String> auctionsIds) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.pwd = pwd;
 		this.photoId = photoId;
-		this.channelIds = channelIds;
+		this.auctionsIds = auctionsIds;
 	}
 	public String getId() {
 		return id;
@@ -43,16 +45,17 @@ public class User {
 	public void setPhotoId(String photoId) {
 		this.photoId = photoId;
 	}
-	public String[] getChannelIds() {
-		return channelIds == null ? new String[0] : channelIds ;
+	public Set<String> getAuctionsIds() {
+		return auctionsIds == null ? new HashSet<String>() : auctionsIds ;
 	}
-	public void setChannelIds(String[] channelIds) {
-		this.channelIds = channelIds;
+	public void setAuctionsIds(Set<String> auctionsIds) {
+		this.auctionsIds = auctionsIds;
 	}
+	/* 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", pwd=" + pwd + ", photoId=" + photoId + ", channelIds="
-				+ Arrays.toString(channelIds) + "]";
-	}
+		return "User [id=" + id + ", name=" + name + ", pwd=" + pwd + ", photoId=" + photoId + ", auctionsIds="
+				+ Arrays.toString(auctionsIds) + "]";
+	}*/
 
 }

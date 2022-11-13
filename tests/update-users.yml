@@ -15,6 +15,15 @@ scenarios:
     weight: 1
     flow:
       - loop:                            # let's update 5 users - loop ... count
+        - function: "selectUserSkewed"
+        - post:                          # First: login as a user
+              url: "/user/auth"
+              name: "POST:/user/auth"
+              headers:
+                Content-Type: application/json
+              json:
+                user: "{{ user }}"
+                pwd: "{{ pwd }}"
         - function: "updateUser"            # Update the user
         - put:
             url: "/user"
@@ -22,10 +31,10 @@ scenarios:
               Content-Type: application/json
               Accept: application/json
             json:
-              id: "{{ id }}"
+              id: "{{ user }}"
               name: "{{ name }}"
               pwd: "{{ pwd }}"
               photoId: "{{ imageId }}"
-              channelIds: []
+              auctionsIds: []
             afterResponse: "updateUserReply"    # capture result and store in file
         count: 1

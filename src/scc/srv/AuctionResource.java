@@ -7,6 +7,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Produces;
 
+import java.util.Set;
 import java.util.UUID;
 
 import com.azure.cosmos.implementation.InternalServerErrorException;
@@ -36,6 +37,12 @@ public class AuctionResource {
 			String uid = UUID.randomUUID().toString();
         	auction.setId(uid);
         	CosmosItemResponse<AuctionDAO> res = resAuction (CosmosDBLayer.getInstance().putAuction(auction));
+			
+			UserDAO u =  CosmosDBLayer.getInstance().getUserById(auction.getUser());
+			Set<String> userAuctions = u.getAuctionsIds();
+			userAuctions.add(uid);
+			u.setAuctionsIds(userAuctions);
+			UsersResource.updateUser(session, u);
 			return res.getItem();
 		} catch( NotAuthorizedException e) {
 			throw e;

@@ -1,5 +1,8 @@
 package scc.data;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class AuctionDAO {
     private String _rid;
     private String _ts;
@@ -11,6 +14,7 @@ public class AuctionDAO {
     private String endTime;
     private String minPrice;
     private String winnerBid;
+    private Map<String, BidDAO> listBids;
     private String status;
 
     public AuctionDAO(){
@@ -18,11 +22,11 @@ public class AuctionDAO {
     }
 
     public AuctionDAO(Auction a){
-        this(a.getId(), a.getTitle(), a.getDescription(), a.getPhotoId(), a.getEndTime(), a.getStatus(), a.getMinPrice(), a.getUser(), a.getWinnerBid());
+        this(a.getId(), a.getTitle(), a.getDescription(), a.getPhotoId(), a.getUser(), a.getEndTime(), a.getMinPrice(), a.getWinnerBid(), a.getBidIds(), a.getStatus());
     }
 
     public AuctionDAO(String id, String title, String description, String photoId, String user,
-                   String endTime, String minPrice, String winnerBid, String status){
+                   String endTime, String minPrice, String winnerBid, Map<String, BidDAO> listBids,  String status){
         super();
         this.id = id;
         this.title = title;
@@ -32,6 +36,7 @@ public class AuctionDAO {
         this.endTime = endTime;
         this.minPrice = minPrice;
         this.winnerBid = winnerBid;
+        this.listBids = listBids;
         this.status = status;
     }
 
@@ -115,6 +120,13 @@ public class AuctionDAO {
         this.winnerBid = winnerBid;
     }
 
+    public Map<String, BidDAO> getBidIds() {
+		return listBids == null ? new HashMap<String, BidDAO>() : listBids ;
+	}
+	public void setBidIds(Map<String, BidDAO> listBids) {
+		this.listBids = listBids;
+	}
+
     public String getStatus() {
         return status;
     }
@@ -123,6 +135,7 @@ public class AuctionDAO {
         this.status = status;
     }
 
+    /* 
     @Override
     public String toString() {
         return "AuctionDAO{" +
@@ -138,5 +151,5 @@ public class AuctionDAO {
                 ", winnerBid='" + winnerBid + '\'' +
                 ", status='" + status + '\'' +
                 '}';
-    }
+    }*/
 }

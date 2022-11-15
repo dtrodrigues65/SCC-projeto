@@ -7,6 +7,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Produces;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -67,6 +68,33 @@ public class AuctionResource {
 		}
 	}
 
+	@POST
+	@Path("/{auctionId}/bid")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public AuctionDAO createBid( @CookieParam("scc:session") Cookie session, BidDAO bid){
+		try  {
+			UsersResource.checkCookieUser(session, bid.getUser());
+			String uid = UUID.randomUUID().toString();
+        	bid.setId(uid);
+			AuctionDAO a =  CosmosDBLayer.getInstance().getAuctionById(bid.getAuctionId());
+			Map<String, BidDAO> auctionsBid = a.getBidIds();
+			//METER UMA EXCECAO QUANDO O VALOR E IGUAL
+			if(Float.valueOf(bid.getValue()) > Float.valueOf(a.getMinPrice()) && a.getStatus().equals("OPEN")){
+				auctionsBid.put(bid.getId(), bid);
+				a.setBidIds(auctionsBid);
+				a.setMinPrice(bid.getValue());
+				resAuction (CosmosDBLayer.getInstance().updateAuction(a));
+			}
+
+			return a;
+		} catch( NotAuthorizedException e) {
+			throw e;
+		} catch( Exception e) {
+			throw new BadRequestException();
+		}
+	}
+
 	private CosmosItemResponse<AuctionDAO> resAuction (CosmosItemResponse<AuctionDAO> res) {
 		if (res.getStatusCode() < 300) {
 			return res;
@@ -74,4 +102,5 @@ public class AuctionResource {
 			throw new NotFoundException();
 		} 
 	}
+
 }

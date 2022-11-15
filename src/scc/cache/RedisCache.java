@@ -81,6 +81,15 @@ public class RedisCache {
 		}
 	}
 
+	public synchronized static AuctionDAO getAuctionFromCache (String id) {
+		ObjectMapper mapper = new ObjectMapper();
+		try (Jedis jedis = RedisCache.getCachePool().getResource()) {
+			return mapper.readValue(jedis.get("auction:" + id), AuctionDAO.class);
+		} catch (Exception e) {
+			throw new NotFoundException();
+		}
+	}
+
 	public synchronized static void putSession(NewCookie c, Session s){
 		ObjectMapper mapper = new ObjectMapper();
 		try(Jedis jedis = RedisCache.getCachePool().getResource()){
@@ -98,6 +107,7 @@ public class RedisCache {
 			throw new NotFoundException();
 		}
 	}
+
 
 
  

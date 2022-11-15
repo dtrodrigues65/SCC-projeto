@@ -49,4 +49,4 @@ scenarios:
               endTime: "{{ endTime }}"
               minPrice: "{{ minimumPrice }}"
               status: "{{ status }}"
-        count: 1
+        count: 10

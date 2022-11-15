@@ -144,6 +144,24 @@ public class CosmosDBLayer {
 	public void close() {
 		client.close();
 	}
+
+	public AuctionDAO getAuctionById(String id) {
+		init();
+		AuctionDAO auction = null;
+		try{
+			auction = RedisCache.getAuctionFromCache(id);
+		}catch(Exception e){
+			CosmosPagedIterable<AuctionDAO> a = auctions.queryItems("SELECT * FROM auctions WHERE auctions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
+			try{
+				auction = a.iterator().next();
+			}catch(Exception e2){
+				throw new NotFoundException();
+			}
+			RedisCache.addAuctionToCache(auction);
+		}
+		return auction;
+	}
 	
+
 	
 }

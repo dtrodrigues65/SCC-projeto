@@ -1,5 +1,8 @@
 package scc.data;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Auction {
     private String id;
     private String title;
@@ -9,9 +12,10 @@ public class Auction {
     private String endTime;
     private String minPrice;
     private String winnerBid;
+    private Map<String, BidDAO> listBids;
     private String status;
     public Auction(String id, String title, String description, String photoId, String user,
-                   String endTime, String minPrice, String winnerBid, String status){
+                   String endTime, String minPrice, String winnerBid, Map<String, BidDAO> listBids, String status){
         super();
         this.id = id;
         this.title = title;
@@ -21,6 +25,7 @@ public class Auction {
         this.endTime = endTime;
         this.minPrice = minPrice;
         this.winnerBid = winnerBid;
+        this.listBids = listBids;
         this.status = status;
     }
 
@@ -88,6 +93,13 @@ public class Auction {
         this.winnerBid = winnerBid;
     }
 
+    public Map<String, BidDAO> getBidIds() {
+		return listBids == null ? new HashMap<String, BidDAO>() : listBids;
+	}
+	public void setBidIds(Map<String, BidDAO> listBids) {
+		this.listBids = listBids;
+	}
+
     public String getStatus() {
         return status;
     }
@@ -96,6 +108,7 @@ public class Auction {
         this.status = status;
     }
 
+    /*
     @Override
     public String toString() {
         return "Auction{" +
@@ -109,5 +122,5 @@ public class Auction {
                 ", winnerBid='" + winnerBid + '\'' +
                 ", status='" + status + '\'' +
                 '}';
-    }
+    }*/
 }

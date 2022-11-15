@@ -133,5 +133,23 @@ public class RedisCache {
 			throw new BadRequestException();
 		}
 	}
+
+	public synchronized static void addQuestionToCache (QuestionDAO q) {
+		ObjectMapper mapper = new ObjectMapper();
+		try (Jedis jedis = RedisCache.getCachePool().getResource()) {
+			jedis.set("question:"+ q.getId(), mapper.writeValueAsString(q));
+		} catch (Exception e) {
+			throw new BadRequestException();
+		}
+	}
+
+	public synchronized static QuestionDAO getQuestionFromCache (String id) {
+		ObjectMapper mapper = new ObjectMapper();
+		try (Jedis jedis = RedisCache.getCachePool().getResource()) {
+			return mapper.readValue(jedis.get("question:" + id), QuestionDAO.class);
+		} catch (Exception e) {
+			throw new NotFoundException();
+		}
+	}
  
 }

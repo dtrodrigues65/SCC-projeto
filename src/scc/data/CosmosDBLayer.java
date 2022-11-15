@@ -45,6 +45,7 @@ public class CosmosDBLayer {
 	private CosmosContainer users;
 	private CosmosContainer auctions;
 	private CosmosContainer bids;
+	private CosmosContainer questions;
 	
 	public CosmosDBLayer(CosmosClient client) {
 		this.client = client;
@@ -57,6 +58,7 @@ public class CosmosDBLayer {
 		auctions = db.getContainer("auctions");
 		users = db.getContainer("users");
 		bids = db.getContainer("bids");
+		questions = db.getContainer("questions");
 	}
 
 	/* 
@@ -198,6 +200,32 @@ public class CosmosDBLayer {
 		}
 		PartitionKey key = new PartitionKey(bid.getId());
         return bids.replaceItem(bid, bid.getId(), key, new CosmosItemRequestOptions());
+	}
+
+	public CosmosItemResponse<QuestionDAO> putQuestion(QuestionDAO q) {
+		init();
+		try{
+			RedisCache.addQuestionToCache(q);
+		}catch(Exception e){
+		}
+		return questions.createItem(q);
+	}
+
+	public QuestionDAO getQuestionById (String id) {
+		init();
+		QuestionDAO question = null;
+		try{
+			question = RedisCache.getQuestionFromCache(id);
+		}catch(Exception e){
+			CosmosPagedIterable<QuestionDAO> b = bids.queryItems("SELECT * FROM questions WHERE questions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), QuestionDAO.class);
+			try{
+				question = b.iterator().next();
+			}catch(Exception e2){
+				throw new NotFoundException();
+			}
+			RedisCache.addQuestionToCache(question);
+		}
+		return question;
 	}
 	
 }

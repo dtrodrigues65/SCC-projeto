@@ -1,6 +1,8 @@
 package scc.data;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class Auction {
@@ -14,8 +16,11 @@ public class Auction {
     private String winnerBid;
     private Set<String> listBids;
     private String status;
+    private Map<String, Set<String>> listQuestions;
+    
+
     public Auction(String id, String title, String description, String photoId, String user,
-                   String endTime, String minPrice, String winnerBid, Set<String> listBids, String status){
+                   String endTime, String minPrice, String winnerBid, Set<String> listBids, String status,Map<String, Set<String>> listQuestions ){
         super();
         this.id = id;
         this.title = title;
@@ -27,6 +32,7 @@ public class Auction {
         this.winnerBid = winnerBid;
         this.listBids = listBids;
         this.status = status;
+        this.listQuestions = listQuestions;
     }
 
     public String getId() {
@@ -98,6 +104,13 @@ public class Auction {
 	}
 	public void setBidIds(Set<String> listBids) {
 		this.listBids = listBids;
+	}
+
+    public Map<String, Set<String>> getQuestionsIds() {
+		return listQuestions == null ? new HashMap<String, Set<String>>() : listQuestions;
+	}
+	public void setQuestionsIds(Map<String, Set<String>> listQuestions) {
+		this.listQuestions = listQuestions;
 	}
 
     public String getStatus() {

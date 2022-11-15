@@ -120,6 +120,70 @@ public class AuctionResource {
 		return aux;
 	}
 
+	@POST
+	@Path ("/{auctionId}/question")
+	@Consumes(MediaType.APPLICATION_JSON) //novo
+	@Produces(MediaType.APPLICATION_JSON)
+	public QuestionDAO putQuestion (@CookieParam("scc:session") Cookie session, @PathParam("auctionId") String id, QuestionDAO question) {
+		try {
+			UsersResource.checkCookieUser(session, question.getUserId());
+			AuctionDAO a = CosmosDBLayer.getInstance().getAuctionById(id);
+			String uid = UUID.randomUUID().toString();
+			question.setId(uid);
+			CosmosItemResponse<QuestionDAO> res = CosmosDBLayer.getInstance().putQuestion(question);
+			Map<String, Set<String>> questionsIds = a.getQuestionsIds();
+			Set<String> s = new HashSet<String>();
+			questionsIds.put(question.getId(),s);
+			a.setQuestionsIds(questionsIds);
+			CosmosDBLayer.getInstance().updateAuction(a);
+			return res.getItem();
+		} catch( NotAuthorizedException e) {
+			throw e;
+		} catch( Exception e) {
+			throw new BadRequestException();
+		}
+	}
+
+	@POST
+	@Path ("/{auctionId}/question/{questionId}/reply")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public QuestionDAO putReply (@CookieParam("scc:session") Cookie session, @PathParam("auctionId") String auctionId, @PathParam("questionId") String questionId, QuestionDAO reply) {
+		try {
+			UsersResource.checkCookieUser(session, reply.getUserId());
+			AuctionDAO a = CosmosDBLayer.getInstance().getAuctionById(auctionId);
+			String uid = UUID.randomUUID().toString();
+			reply.setId(uid);
+			CosmosItemResponse<QuestionDAO> res = CosmosDBLayer.getInstance().putQuestion(reply);
+			Map<String, Set<String>> questionsIds = a.getQuestionsIds();
+			Set<String> replys = questionsIds.get(questionId);
+			replys.add(uid);
+			questionsIds.replace(questionId, replys);
+			a.setQuestionsIds(questionsIds);
+			CosmosDBLayer.getInstance().updateAuction(a);
+			return res.getItem();
+		} catch( NotAuthorizedException e) {
+			throw e;
+		} catch( Exception e) {
+			throw new BadRequestException();
+		}
+	}
+
+	@GET
+	@Path("/{auctionId}/question")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Set<QuestionDAO> listQuestions (@PathParam("auctionId") String id) {
+		Set<QuestionDAO> aux = new HashSet<QuestionDAO>();
+		AuctionDAO a = CosmosDBLayer.getInstance().getAuctionById(id);
+		Set<String> questionIds  = a.getQuestionsIds().keySet();
+		for (String x: questionIds ) {
+			QuestionDAO q = CosmosDBLayer.getInstance().getQuestionById(x);
+			aux.add(q);
+		}
+		return aux;
+
+	}
+
 	private CosmosItemResponse<AuctionDAO> resAuction (CosmosItemResponse<AuctionDAO> res) {
 		if (res.getStatusCode() < 300) {
 			return res;

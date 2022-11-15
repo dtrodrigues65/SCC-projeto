@@ -44,6 +44,7 @@ public class CosmosDBLayer {
 	private CosmosDatabase db;
 	private CosmosContainer users;
 	private CosmosContainer auctions;
+	private CosmosContainer bids;
 	
 	public CosmosDBLayer(CosmosClient client) {
 		this.client = client;
@@ -55,7 +56,7 @@ public class CosmosDBLayer {
 		db = client.getDatabase(DB_NAME);
 		auctions = db.getContainer("auctions");
 		users = db.getContainer("users");
-		
+		bids = db.getContainer("bids");
 	}
 
 	/* 
@@ -162,6 +163,41 @@ public class CosmosDBLayer {
 		return auction;
 	}
 	
+	public CosmosItemResponse<BidDAO> putBid(BidDAO bid) {
+		init();
+		try{
+			RedisCache.addBidToCache(bid);
+		}catch(Exception e){
+		}
+		return bids.createItem(bid);
+	}
 
+	public BidDAO getBidById(String id) {
+		init();
+		BidDAO bid = null;
+		try{
+			bid = RedisCache.getBidFromCache(id);
+		}catch(Exception e){
+			CosmosPagedIterable<BidDAO> b = bids.queryItems("SELECT * FROM bids WHERE bids.id=\"" + id + "\"", new CosmosQueryRequestOptions(), BidDAO.class);
+			try{
+				bid = b.iterator().next();
+			}catch(Exception e2){
+				throw new NotFoundException();
+			}
+			RedisCache.addBidToCache(bid);
+		}
+		return bid;
+	}
+
+	public CosmosItemResponse<BidDAO> updateBid(BidDAO bid) {
+		init();
+		try{
+			RedisCache.removeBidFromCache(bid.getId());
+			RedisCache.addBidToCache(bid);
+		}catch(Exception e){
+		}
+		PartitionKey key = new PartitionKey(bid.getId());
+        return bids.replaceItem(bid, bid.getId(), key, new CosmosItemRequestOptions());
+	}
 	
 }

@@ -15,19 +15,21 @@ public class UserDAO {
 	private String pwd;
 	private String photoId;
 	private Set<String> auctionsIds;
+	private Set<String> bidsIds;
 
 	public UserDAO() {
 	}
 	public UserDAO( User u) {
-		this(u.getId(), u.getName(), u.getPwd(), u.getPhotoId(), u.getAuctionsIds());
+		this(u.getId(), u.getName(), u.getPwd(), u.getPhotoId(), u.getAuctionsIds(), u.getBidsIds());
 	}
-	public UserDAO(String id, String name, String pwd, String photoId, Set<String> auctionsIds) {
+	public UserDAO(String id, String name, String pwd, String photoId, Set<String> auctionsIds, Set<String> bidsIds) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.pwd = pwd;
 		this.photoId = photoId;
 		this.auctionsIds = auctionsIds;
+		this.bidsIds = bidsIds;
 	}
 	public String get_rid() {
 		return _rid;
@@ -70,6 +72,12 @@ public class UserDAO {
 	}
 	public void setAuctionsIds(Set<String> auctionsIds) {
 		this.auctionsIds = auctionsIds;
+	}
+	public Set<String> getBidsIds() {
+		return bidsIds == null ? new HashSet<String>() : bidsIds ;
+	}
+	public void setBidsIds(Set<String> bidsIds) {
+		this.bidsIds = bidsIds;
 	}
 	/* 
 	public User toUser() {

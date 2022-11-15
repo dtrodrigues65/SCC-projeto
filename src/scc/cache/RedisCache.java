@@ -108,7 +108,30 @@ public class RedisCache {
 		}
 	}
 
+	public synchronized static void addBidToCache (BidDAO bid) {
+		ObjectMapper mapper = new ObjectMapper();
+		try (Jedis jedis = RedisCache.getCachePool().getResource()) {
+			jedis.set("bid:"+ bid.getId(), mapper.writeValueAsString(bid));
+		} catch (Exception e) {
+			throw new BadRequestException();
+		}
+	}
 
+	public synchronized static BidDAO getBidFromCache (String id) {
+		ObjectMapper mapper = new ObjectMapper();
+		try (Jedis jedis = RedisCache.getCachePool().getResource()) {
+			return mapper.readValue(jedis.get("bid:" + id), BidDAO.class);
+		} catch (Exception e) {
+			throw new NotFoundException();
+		}
+	}
 
+	public synchronized static void removeBidFromCache (String id) {
+		try (Jedis jedis = RedisCache.getCachePool().getResource()) {
+			jedis.del("bid:" + id);
+		} catch (Exception e) {
+			throw new BadRequestException();
+		}
+	}
  
 }

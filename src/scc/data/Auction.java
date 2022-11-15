@@ -1,7 +1,7 @@
 package scc.data;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Auction {
     private String id;
@@ -12,10 +12,10 @@ public class Auction {
     private String endTime;
     private String minPrice;
     private String winnerBid;
-    private Map<String, BidDAO> listBids;
+    private Set<String> listBids;
     private String status;
     public Auction(String id, String title, String description, String photoId, String user,
-                   String endTime, String minPrice, String winnerBid, Map<String, BidDAO> listBids, String status){
+                   String endTime, String minPrice, String winnerBid, Set<String> listBids, String status){
         super();
         this.id = id;
         this.title = title;
@@ -93,10 +93,10 @@ public class Auction {
         this.winnerBid = winnerBid;
     }
 
-    public Map<String, BidDAO> getBidIds() {
-		return listBids == null ? new HashMap<String, BidDAO>() : listBids;
+    public Set<String> getBidIds() {
+		return listBids == null ? new HashSet<String>() : listBids;
 	}
-	public void setBidIds(Map<String, BidDAO> listBids) {
+	public void setBidIds(Set<String> listBids) {
 		this.listBids = listBids;
 	}
 

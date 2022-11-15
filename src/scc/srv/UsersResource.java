@@ -40,6 +40,7 @@ public class UsersResource{
 	public UserDAO delUser(@CookieParam("scc:session") Cookie session, UserDAO user) {
 		try {
 			checkCookieUser(session, user.getId());
+			auxDel(user.getId());
 			resObject(CosmosDBLayer.getInstance().delUser(user));
 			return user;
 		} catch( NotAuthorizedException e) {
@@ -48,6 +49,22 @@ public class UsersResource{
 			throw new BadRequestException();
 		}
 		
+	}
+
+	private synchronized void auxDel(String u){
+		UserDAO user = CosmosDBLayer.getInstance().getUserById(u);
+		Set<String> auctions = user.getAuctionsIds();
+		Set<String> bids = user.getBidsIds();
+		for(String sa: auctions){
+			AuctionDAO a =  CosmosDBLayer.getInstance().getAuctionById(sa);
+			a.setUser("Deleted user");
+			CosmosDBLayer.getInstance().updateAuction(a);
+		}
+		for(String sb: bids){
+			BidDAO b =  CosmosDBLayer.getInstance().getBidById(sb);
+			b.setUser("Deleted user");
+			CosmosDBLayer.getInstance().updateBid(b);
+		}
 	}
 
 	@PUT

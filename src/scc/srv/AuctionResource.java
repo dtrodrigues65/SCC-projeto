@@ -7,6 +7,9 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Produces;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -181,7 +184,24 @@ public class AuctionResource {
 			aux.add(q);
 		}
 		return aux;
+	}
 
+	@GET
+	@Path("/aboutToClose")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Set<AuctionDAO> listAuctionsAboutClose () {
+		Set<AuctionDAO> allAuctions = CosmosDBLayer.getInstance().getAllAuctions();
+		Set<AuctionDAO> setAuctionsClose = new HashSet<AuctionDAO>();
+		Date currentTime = getDateTime(java.time.LocalDateTime.now().toString().split("[.]") [0]);
+		for (AuctionDAO a : allAuctions) {
+			Date auctionTime = getDateTime(a.getEndTime().split("[.]") [0]);
+			long differenceMs = auctionTime.getTime() - currentTime.getTime();
+			double differenceMinutes =  ((double) differenceMs / 1000) / 60;
+			if(differenceMinutes < 30.0 && a.getStatus().equals("OPEN")) {
+				setAuctionsClose.add(a);
+			}
+		}
+		return setAuctionsClose;
 	}
 
 	private CosmosItemResponse<AuctionDAO> resAuction (CosmosItemResponse<AuctionDAO> res) {
@@ -200,4 +220,13 @@ public class AuctionResource {
 		} 
 	}
 
+	private Date getDateTime(String d) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+		Date time = null;
+		try {
+			time = sdf.parse(d);
+		} catch (ParseException e) {
+		}
+		return time;
+	} 
 }

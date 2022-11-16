@@ -1,5 +1,9 @@
 package scc.data;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 import com.azure.cosmos.ConsistencyLevel;
 import com.azure.cosmos.CosmosClient;
 import com.azure.cosmos.CosmosClientBuilder;
@@ -226,6 +230,23 @@ public class CosmosDBLayer {
 			RedisCache.addQuestionToCache(question);
 		}
 		return question;
+	}
+
+	public Set<AuctionDAO> getAllAuctions () {
+		init();
+		Set<AuctionDAO> setAuctions = new HashSet<AuctionDAO>();
+		CosmosPagedIterable<AuctionDAO> b = auctions.queryItems("SELECT * FROM auctions", new CosmosQueryRequestOptions(), AuctionDAO.class);
+		Iterator<AuctionDAO> it = b.iterator();
+		try{
+			while(it.hasNext()) {
+				AuctionDAO a = it.next();
+				setAuctions.add(a);
+			}
+		}catch(Exception e2){
+			throw new NotFoundException();
+		}
+		//o ze ja ve se tem que por na cahce
+		return setAuctions; 
 	}
 	
 }

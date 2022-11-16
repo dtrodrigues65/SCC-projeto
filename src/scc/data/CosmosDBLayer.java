@@ -19,9 +19,12 @@ import jakarta.ws.rs.NotFoundException;
 import scc.cache.RedisCache;
 
 public class CosmosDBLayer {
-	private static final String CONNECTION_URL = "https://scctp1cosmosdb.documents.azure.com:443/";
-	private static final String DB_KEY = "aRQeHIFXAlwba2rPs34mPitOB98ALBOyPnlbAmZbPjDyT6d4KIRgKqJHOhABaXixhqdRUybgue37JR4ve95GLw==";
-	private static final String DB_NAME = "scctp1db";
+	//private static final String CONNECTION_URL = "https://scctp1cosmosdb.documents.azure.com:443/";
+	private static final String CONNECTION_URL = System.getenv("COSMOS_CONNECTION_URL");
+	//private static final String DB_KEY = "aRQeHIFXAlwba2rPs34mPitOB98ALBOyPnlbAmZbPjDyT6d4KIRgKqJHOhABaXixhqdRUybgue37JR4ve95GLw==";
+	private static final String DB_KEY = System.getenv("COSMOS_DB_KEY");
+	//private static final String DB_NAME = "scctp1db";
+	private static final String DB_NAME = System.getenv("COSMOS_DB_NAME");
 	
 	private static CosmosDBLayer instance;
 

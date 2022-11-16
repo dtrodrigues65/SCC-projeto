@@ -29,8 +29,8 @@ import com.azure.storage.blob.models.BlobItem;
 @Path("/media")
 public class MediaResource {
 
-	String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=scctp1storage;AccountKey=QqhHmfz4oH+OgB7vZ26+2VvzoqlqoV7zJt1ioGy36D5zyKJMf5iyjKp/nBx1+iQJX9zZ/378/SJA+AStSmShug==;EndpointSuffix=core.windows.net";
-	//String storageConnectionString = System.getenv("BlobStoreConnection");
+	///String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=scctp1storage;AccountKey=QqhHmfz4oH+OgB7vZ26+2VvzoqlqoV7zJt1ioGy36D5zyKJMf5iyjKp/nBx1+iQJX9zZ/378/SJA+AStSmShug==;EndpointSuffix=core.windows.net";
+	String storageConnectionString = System.getenv("BLOB_STORE_CONNECTION");
 	BlobContainerClient containerClient = new BlobContainerClientBuilder().connectionString(storageConnectionString).containerName("images").buildClient();
 
 

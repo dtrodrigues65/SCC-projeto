@@ -248,7 +248,6 @@ public class CosmosDBLayer {
 		}catch(Exception e2){
 			throw new NotFoundException();
 		}
-		//o ze ja ve se tem que por na cahce
 		return setAuctions; 
 	}
 	

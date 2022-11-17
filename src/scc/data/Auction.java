@@ -13,6 +13,7 @@ public class Auction {
     private String user;
     private String endTime;
     private String minPrice;
+    private String lastBid;
     private String winnerBid;
     private Set<String> listBids;
     private String status;
@@ -20,7 +21,7 @@ public class Auction {
     
 
     public Auction(String id, String title, String description, String photoId, String user,
-                   String endTime, String minPrice, String winnerBid, Set<String> listBids, String status,Map<String, Set<String>> listQuestions ){
+                   String endTime, String minPrice, String lastBid, String winnerBid, Set<String> listBids, String status,Map<String, Set<String>> listQuestions ){
         super();
         this.id = id;
         this.title = title;
@@ -29,6 +30,7 @@ public class Auction {
         this.user = user;
         this.endTime = endTime;
         this.minPrice = minPrice;
+        this.lastBid = lastBid;
         this.winnerBid = winnerBid;
         this.listBids = listBids;
         this.status = status;
@@ -89,6 +91,14 @@ public class Auction {
 
     public void setMinPrice(String minPrice) {
         this.minPrice = minPrice;
+    }
+
+    public String getLastBid() {
+        return lastBid;
+    }
+
+    public void setLastBid(String lastBid) {
+        this.lastBid = lastBid;
     }
 
     public String getWinnerBid() {

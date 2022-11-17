@@ -91,6 +91,7 @@ public class AuctionResource {
 				auctionsBid.add(bid.getId());
 				a.setBidIds(auctionsBid);
 				a.setMinPrice(bid.getValue());
+				a.setLastBid(uid);
 				userBids.add(uid);
 				u.setBidsIds(userBids);
 				UsersResource.updateUser(session, u);

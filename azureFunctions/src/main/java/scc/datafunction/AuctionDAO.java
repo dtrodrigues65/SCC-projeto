@@ -1,4 +1,4 @@
-package scc.data;
+package scc.datafunction;
 
 import java.util.HashMap;
 import java.util.HashSet;

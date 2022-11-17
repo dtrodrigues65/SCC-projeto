@@ -77,12 +77,12 @@ public class AuctionResource {
 	@Path("/{auctionId}/bid")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public BidDAO createBid( @CookieParam("scc:session") Cookie session, BidDAO bid){
+	public BidDAO createBid( @CookieParam("scc:session") Cookie session, @PathParam("auctionId") String id, BidDAO bid){
 		try  {
 			UsersResource.checkCookieUser(session, bid.getUser());
 			String uid = UUID.randomUUID().toString();
         	bid.setId(uid);
-			AuctionDAO a =  CosmosDBLayer.getInstance().getAuctionById(bid.getAuctionId());
+			AuctionDAO a =  CosmosDBLayer.getInstance().getAuctionById(id);
 			Set<String> auctionsBid = a.getBidIds();
 			UserDAO u = CosmosDBLayer.getInstance().getUserById(bid.getUser());
 			Set<String> userBids = u.getBidsIds();
@@ -92,21 +92,22 @@ public class AuctionResource {
 				a.setBidIds(auctionsBid);
 				a.setMinPrice(bid.getValue());
 				a.setLastBid(uid);
+				resAuction (CosmosDBLayer.getInstance().updateAuction(a));
 				userBids.add(uid);
 				u.setBidsIds(userBids);
 				UsersResource.updateUser(session, u);
 				res = resBid (CosmosDBLayer.getInstance().putBid(bid));
-				resAuction (CosmosDBLayer.getInstance().updateAuction(a));
+				
 
 			}
-			if(res == null) {
-				throw new Exception("Bid is less than min price");
-			}
+			//if(res == null) {
+				//throw new BadRequestException("Bid is less than min price");
+			//}
 			return res.getItem();
 		} catch( NotAuthorizedException e) {
 			throw e;
 		} catch( Exception e) {
-			throw new BadRequestException();
+			throw new NotFoundException();
 		}
 	}
 

@@ -226,8 +226,8 @@ function selectUserSkewed(context, events, done) {
 function genNewAuction(context, events, done) {
 	context.vars.title = `${Faker.commerce.productName()}`
 	context.vars.description = `${Faker.commerce.productDescription()}`
-	context.vars.minimumPrice = `${Faker.commerce.price()}`
-	context.vars.bidValue = context.vars.minimumPrice + random(3)
+	context.vars.minimumPrice = `${Faker.commerce.price(1,999)}`
+	//context.vars.bidValue = context.vars.minimumPrice
 	var maxBids = 5
 	if( typeof context.vars.maxBids !== 'undefined')
 		maxBids = context.vars.maxBids;
@@ -237,15 +237,15 @@ function genNewAuction(context, events, done) {
 	var d = new Date();
 	d.setTime(Date.now() + random( 300000));
 	context.vars.endTime = d.toISOString();
-	if( Math.random() > 0.2) { 
+	//if( Math.random() > 0.2) { 
 		context.vars.status = "OPEN";
 		context.vars.numBids = random( maxBids);
 		context.vars.numQuestions = random( maxQuestions);
-	} else {
-		context.vars.status = "CLOSED";
-		delete context.vars.numBids;
-		delete context.vars.numQuestions;
-	}
+	//} else {
+	//	context.vars.status = "CLOSED";
+	//	delete context.vars.numBids;
+	//	delete context.vars.numQuestions;
+	//}
 	return done()
 }
 
@@ -255,15 +255,15 @@ function genNewAuction(context, events, done) {
  function genNewBid(context, events, done) {
 	if( typeof context.vars.bidValue == 'undefined') {
 		if( typeof context.vars.minPrice == 'undefined') {
-			context.vars.bidValue = random(100)
+			context.vars.bidValue = 1000
 		} else {
-			context.vars.bidValue = context.vars.minimumPrice + random(3)
+			context.vars.bidValue = context.vars.minimumPrice + 10
 		}
 	}
-	context.vars.value = context.vars.bidValue;
-	context.vars.bidValue = context.vars.bidValue + 1 + random(3)
-	context.vars.auctionId = context.vars.auctionCapture.id
-	context.vars.auctionUser = context.vars.auctionCapture.user
+	context.vars.value = context.vars.bidValue +10;
+	context.vars.bidValue = context.vars.bidValue + 10
+	//context.vars.auctionId = context.vars.auctionCapture.id
+	//context.vars.auctionUser = context.vars.auctionCapture.user
 	return done()
 }
 
@@ -279,16 +279,16 @@ function genNewAuction(context, events, done) {
  * Generate data for a new reply
  */
  function genNewQuestionReply(context, events, done) {
-	delete context.vars.reply;
-	if( Math.random() > 0.5) {
-		if( typeof context.vars.auctionUser !== 'undefined') {
+	//delete context.vars.reply;
+	//if( Math.random() > 0.5) {
+	//	if( typeof context.vars.auctionUser !== 'undefined') {
 			var user = findUser( context.vars.auctionUser);
-			if( user != null) {
+	//		if( user != null) {
 				context.vars.auctionUserPwd = user.pwd;
 				context.vars.reply = `${Faker.lorem.paragraph()}`;
-			}
-		}
-	} 
+	//		}
+	//	}
+	//} 
 	return done()
 }
 

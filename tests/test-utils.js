@@ -14,6 +14,9 @@ module.exports = {
   updateUserReply,
   selectUserSkewed,
   genNewAuction,
+  genNewBid,
+  genNewQuestion,
+  genNewQuestionReply
 }
 
 
@@ -225,27 +228,68 @@ function genNewAuction(context, events, done) {
 	context.vars.description = `${Faker.commerce.productDescription()}`
 	context.vars.minimumPrice = `${Faker.commerce.price()}`
 	context.vars.bidValue = context.vars.minimumPrice + random(3)
-	//var maxBids = 5
-	//if( typeof context.vars.maxBids !== 'undefined')
-	//	maxBids = context.vars.maxBids;
-	//var maxQuestions = 2
-	//if( typeof context.vars.maxQuestions !== 'undefined')
-	//	maxQuestions = context.vars.maxQuestions;
+	var maxBids = 5
+	if( typeof context.vars.maxBids !== 'undefined')
+		maxBids = context.vars.maxBids;
+	var maxQuestions = 2
+	if( typeof context.vars.maxQuestions !== 'undefined')
+		maxQuestions = context.vars.maxQuestions;
 	var d = new Date();
 	d.setTime(Date.now() + random( 300000));
 	context.vars.endTime = d.toISOString();
-	//if( Math.random() > 0.2) { 
+	if( Math.random() > 0.2) { 
 		context.vars.status = "OPEN";
-		//context.vars.numBids = random( maxBids);
-		//context.vars.numQuestions = random( maxQuestions);
-	//} else {
-	//	context.vars.status = "CLOSED";
-	//	delete context.vars.numBids;
-	//	delete context.vars.numQuestions;
-	//}
+		context.vars.numBids = random( maxBids);
+		context.vars.numQuestions = random( maxQuestions);
+	} else {
+		context.vars.status = "CLOSED";
+		delete context.vars.numBids;
+		delete context.vars.numQuestions;
+	}
 	return done()
 }
 
+/**
+ * Generate data for a new bid
+ */
+ function genNewBid(context, events, done) {
+	if( typeof context.vars.bidValue == 'undefined') {
+		if( typeof context.vars.minPrice == 'undefined') {
+			context.vars.bidValue = random(100)
+		} else {
+			context.vars.bidValue = context.vars.minimumPrice + random(3)
+		}
+	}
+	context.vars.value = context.vars.bidValue;
+	context.vars.bidValue = context.vars.bidValue + 1 + random(3)
+	context.vars.auctionId = context.vars.auctionCapture.id
+	context.vars.auctionUser = context.vars.auctionCapture.user
+	return done()
+}
 
+/**
+ * Generate data for a new question
+ */
+ function genNewQuestion(context, events, done) {
+	context.vars.text = `${Faker.lorem.paragraph()}`;
+	return done()
+}
+
+/**
+ * Generate data for a new reply
+ */
+ function genNewQuestionReply(context, events, done) {
+	delete context.vars.reply;
+	if( Math.random() > 0.5) {
+		if( typeof context.vars.auctionUser !== 'undefined') {
+			var user = findUser( context.vars.auctionUser);
+			if( user != null) {
+				context.vars.auctionUserPwd = user.pwd;
+				context.vars.reply = `${Faker.lorem.paragraph()}`;
+			}
+		}
+	} 
+	return done()
+}
 
 

@@ -28,10 +28,23 @@ import jakarta.ws.rs.core.Cookie;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.PathParam;
 
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.search.documents.SearchClient;
+import com.azure.search.documents.SearchClientBuilder;
+import com.azure.search.documents.SearchDocument;
+import com.azure.search.documents.models.SearchMode;
+import com.azure.search.documents.models.SearchOptions;
+import com.azure.search.documents.util.SearchPagedIterable;
+import com.azure.search.documents.util.SearchPagedResponse;
+
+
 import scc.srv.UsersResource;
 
 @Path("/auction")
 public class AuctionResource {
+	private static final String SERVICE_URL = System.getenv("SERVICE_URL");
+	private static final String INDEX_NAME = System.getenv("INDEX_NAME");
+	private static final String QUERY_KEY = System.getenv("QUERY_KEY");
 
     @POST
     @Path("/")
@@ -221,6 +234,98 @@ public class AuctionResource {
 		}
 		return setAuctionsClose;
 	}
+
+	//Seaches on the description of the auctions for the string searchQuery using azure cognitive search
+	@GET
+	@Path ("/cognitive/{searchQuery}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Set<AuctionDAO> listAuctionsDescriptionsSpecs (@PathParam("searchQuery") String query) {
+		//String SERVICE_URL = "https://scc2223cognitivesearch2.search.windows.net";
+		//String INDEX_NAME = "cosmosdb-index2";
+		//String QUERY_KEY = "8z8d9qAJ7ITtiu1b54FGm1ZbKPyfBrGaXPsQWpAypPAzSeCcUdl9";
+		Set<AuctionDAO> matches = new HashSet<AuctionDAO>();
+		try {
+			SearchClient searchClient = new SearchClientBuilder()
+					.credential(new AzureKeyCredential(QUERY_KEY))
+					.endpoint(SERVICE_URL).indexName(INDEX_NAME)
+					.buildClient();
+
+			String queryText = query;
+			//SearchOptions options = new SearchOptions().setIncludeTotalCount(true).setTop(5);
+			SearchOptions options = new SearchOptions().setIncludeTotalCount(true)
+					.setSelect("id")
+					.setSearchFields("description")
+					.setTop(5);
+
+			SearchPagedIterable searchPagedIterable = searchClient.search(queryText, options,null);
+			//System.out.println("Number of results : " + searchPagedIterable.getTotalCount());
+
+			for (SearchPagedResponse resultResponse : searchPagedIterable.iterableByPage()) {
+				resultResponse.getValue().forEach(searchResult -> {
+					for (Map.Entry<String, Object> res : searchResult.getDocument(SearchDocument.class).entrySet()) {
+						//System.out.printf("%s -> %s\n", res.getKey(), res.getValue());
+						String id = String.valueOf(res.getValue());
+						matches.add(CosmosDBLayer.getInstance().getAuctionById(id));
+					}
+					//System.out.println();
+				});
+			}
+			return matches;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return matches;
+	}
+
+	//Searches the related auctions
+	@GET
+	@Path ("/cognitive/related/{auctionId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Set<AuctionDAO> listAuctionsRelated (@PathParam("auctionId") String auctionId) {
+		//String SERVICE_URL = "https://scc2223cognitivesearch2.search.windows.net";
+		//String INDEX_NAME = "cosmosdb-index2";
+		//String QUERY_KEY = "8z8d9qAJ7ITtiu1b54FGm1ZbKPyfBrGaXPsQWpAypPAzSeCcUdl9";
+		Set<AuctionDAO> matches = new HashSet<AuctionDAO>();
+		AuctionDAO a = CosmosDBLayer.getInstance().getAuctionById(auctionId);
+		try {
+			SearchClient searchClient = new SearchClientBuilder()
+					.credential(new AzureKeyCredential(QUERY_KEY))
+					.endpoint(SERVICE_URL).indexName(INDEX_NAME)
+					.buildClient();
+
+			String queryText = a.getDescription ();
+			//SearchOptions options = new SearchOptions().setIncludeTotalCount(true).setTop(5);
+			SearchOptions options = new SearchOptions().setIncludeTotalCount(true)
+					.setSelect("id")
+					.setSearchFields("title","description")
+					.setTop(5);
+
+			SearchPagedIterable searchPagedIterable = searchClient.search(queryText, options,null);
+			//System.out.println("Number of results : " + searchPagedIterable.getTotalCount());
+
+			for (SearchPagedResponse resultResponse : searchPagedIterable.iterableByPage()) {
+				resultResponse.getValue().forEach(searchResult -> {
+					for (Map.Entry<String, Object> res : searchResult.getDocument(SearchDocument.class).entrySet()) {
+						//System.out.printf("%s -> %s\n", res.getKey(), res.getValue());
+						String id = String.valueOf(res.getValue());
+						if (!id.equals(auctionId)) {
+							matches.add(CosmosDBLayer.getInstance().getAuctionById(id));
+						}
+						
+					}
+					//System.out.println();
+				});
+			}
+			return matches;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return matches;
+	}
+
+
+
+
 	
 
 	private CosmosItemResponse<AuctionDAO> resAuction (CosmosItemResponse<AuctionDAO> res) {

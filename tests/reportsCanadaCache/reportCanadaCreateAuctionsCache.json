@@ -1,0 +1,6767 @@
+{
+  "aggregate": {
+    "counters": {
+      "vusers.created_by_name.Create auctions": 1,
+      "vusers.created": 1,
+      "http.requests": 323,
+      "http.codes.200": 322,
+      "http.responses": 322,
+      "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 150,
+      "plugins.metrics-by-endpoint.POST:/media.codes.200": 23,
+      "plugins.metrics-by-endpoint.POST:/auction.codes.200": 23,
+      "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 44,
+      "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 41,
+      "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 41,
+      "errors.ETIMEDOUT": 1,
+      "vusers.failed": 1
+    },
+    "rates": {
+      "http.request_rate": 1
+    },
+    "firstCounterAt": 1668870088489,
+    "firstHistogramAt": 1668870089829,
+    "lastCounterAt": 1668870561678,
+    "lastHistogramAt": 1668870551668,
+    "firstMetricAt": 1668870088489,
+    "lastMetricAt": 1668870561678,
+    "period": 1668870560000,
+    "summaries": {
+      "http.response_time": {
+        "min": 263,
+        "max": 3693,
+        "count": 322,
+        "p50": 757.6,
+        "median": 757.6,
+        "p75": 1863.5,
+        "p90": 3134.5,
+        "p95": 3197.8,
+        "p99": 3262.4,
+        "p999": 3395.5
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+        "min": 724,
+        "max": 1361,
+        "count": 150,
+        "p50": 727.9,
+        "median": 727.9,
+        "p75": 742.6,
+        "p90": 757.6,
+        "p95": 772.9,
+        "p99": 854.2,
+        "p999": 889.1
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/media": {
+        "min": 263,
+        "max": 437,
+        "count": 23,
+        "p50": 290.1,
+        "median": 290.1,
+        "p75": 327.1,
+        "p90": 383.8,
+        "p95": 383.8,
+        "p99": 399.5,
+        "p999": 399.5
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+        "min": 2127,
+        "max": 2282,
+        "count": 23,
+        "p50": 2143.5,
+        "median": 2143.5,
+        "p75": 2186.8,
+        "p90": 2186.8,
+        "p95": 2231,
+        "p99": 2231,
+        "p999": 2231
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+        "min": 3126,
+        "max": 3693,
+        "count": 44,
+        "p50": 3134.5,
+        "median": 3134.5,
+        "p75": 3197.8,
+        "p90": 3262.4,
+        "p95": 3262.4,
+        "p99": 3395.5,
+        "p999": 3395.5
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+        "min": 1831,
+        "max": 1988,
+        "count": 41,
+        "p50": 1863.5,
+        "median": 1863.5,
+        "p75": 1863.5,
+        "p90": 1901.1,
+        "p95": 1939.5,
+        "p99": 1978.7,
+        "p999": 1978.7
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+        "min": 1829,
+        "max": 2040,
+        "count": 41,
+        "p50": 1863.5,
+        "median": 1863.5,
+        "p75": 1863.5,
+        "p90": 1863.5,
+        "p95": 1901.1,
+        "p99": 1901.1,
+        "p999": 1901.1
+      }
+    },
+    "histograms": {
+      "http.response_time": {
+        "min": 263,
+        "max": 3693,
+        "count": 322,
+        "p50": 757.6,
+        "median": 757.6,
+        "p75": 1863.5,
+        "p90": 3134.5,
+        "p95": 3197.8,
+        "p99": 3262.4,
+        "p999": 3395.5
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+        "min": 724,
+        "max": 1361,
+        "count": 150,
+        "p50": 727.9,
+        "median": 727.9,
+        "p75": 742.6,
+        "p90": 757.6,
+        "p95": 772.9,
+        "p99": 854.2,
+        "p999": 889.1
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/media": {
+        "min": 263,
+        "max": 437,
+        "count": 23,
+        "p50": 290.1,
+        "median": 290.1,
+        "p75": 327.1,
+        "p90": 383.8,
+        "p95": 383.8,
+        "p99": 399.5,
+        "p999": 399.5
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+        "min": 2127,
+        "max": 2282,
+        "count": 23,
+        "p50": 2143.5,
+        "median": 2143.5,
+        "p75": 2186.8,
+        "p90": 2186.8,
+        "p95": 2231,
+        "p99": 2231,
+        "p999": 2231
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+        "min": 3126,
+        "max": 3693,
+        "count": 44,
+        "p50": 3134.5,
+        "median": 3134.5,
+        "p75": 3197.8,
+        "p90": 3262.4,
+        "p95": 3262.4,
+        "p99": 3395.5,
+        "p999": 3395.5
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+        "min": 1831,
+        "max": 1988,
+        "count": 41,
+        "p50": 1863.5,
+        "median": 1863.5,
+        "p75": 1863.5,
+        "p90": 1901.1,
+        "p95": 1939.5,
+        "p99": 1978.7,
+        "p999": 1978.7
+      },
+      "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+        "min": 1829,
+        "max": 2040,
+        "count": 41,
+        "p50": 1863.5,
+        "median": 1863.5,
+        "p75": 1863.5,
+        "p90": 1863.5,
+        "p95": 1901.1,
+        "p99": 1901.1,
+        "p999": 1901.1
+      }
+    }
+  },
+  "intermediate": [
+    {
+      "counters": {
+        "vusers.created_by_name.Create auctions": 1,
+        "vusers.created": 1,
+        "http.requests": 2,
+        "http.codes.200": 1,
+        "http.responses": 1,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870088489,
+      "firstHistogramAt": 1668870089829,
+      "lastCounterAt": 1668870089860,
+      "lastHistogramAt": 1668870089832,
+      "firstMetricAt": 1668870088489,
+      "lastMetricAt": 1668870089860,
+      "period": "1668870080000",
+      "summaries": {
+        "http.response_time": {
+          "min": 741,
+          "max": 741,
+          "count": 1,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 741,
+          "max": 741,
+          "count": 1,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 741,
+          "max": 741,
+          "count": 1,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 741,
+          "max": 741,
+          "count": 1,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 6,
+        "http.responses": 6,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "http.requests": 6,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 2,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870090154,
+      "firstHistogramAt": 1668870090154,
+      "lastCounterAt": 1668870099458,
+      "lastHistogramAt": 1668870099456,
+      "firstMetricAt": 1668870090154,
+      "lastMetricAt": 1668870099458,
+      "period": "1668870090000",
+      "summaries": {
+        "http.response_time": {
+          "min": 293,
+          "max": 3693,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1978.7,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 293,
+          "max": 293,
+          "count": 1,
+          "p50": 290.1,
+          "median": 290.1,
+          "p75": 290.1,
+          "p90": 290.1,
+          "p95": 290.1,
+          "p99": 290.1,
+          "p999": 290.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2141,
+          "max": 2141,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 724,
+          "max": 740,
+          "count": 2,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3693,
+          "max": 3693,
+          "count": 1,
+          "p50": 3678.4,
+          "median": 3678.4,
+          "p75": 3678.4,
+          "p90": 3678.4,
+          "p95": 3678.4,
+          "p99": 3678.4,
+          "p999": 3678.4
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1973,
+          "max": 1973,
+          "count": 1,
+          "p50": 1978.7,
+          "median": 1978.7,
+          "p75": 1978.7,
+          "p90": 1978.7,
+          "p95": 1978.7,
+          "p99": 1978.7,
+          "p999": 1978.7
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 293,
+          "max": 3693,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1978.7,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 293,
+          "max": 293,
+          "count": 1,
+          "p50": 290.1,
+          "median": 290.1,
+          "p75": 290.1,
+          "p90": 290.1,
+          "p95": 290.1,
+          "p99": 290.1,
+          "p999": 290.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2141,
+          "max": 2141,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 724,
+          "max": 740,
+          "count": 2,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3693,
+          "max": 3693,
+          "count": 1,
+          "p50": 3678.4,
+          "median": 3678.4,
+          "p75": 3678.4,
+          "p90": 3678.4,
+          "p95": 3678.4,
+          "p99": 3678.4,
+          "p999": 3678.4
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1973,
+          "max": 1973,
+          "count": 1,
+          "p50": 1978.7,
+          "median": 1978.7,
+          "p75": 1978.7,
+          "p90": 1978.7,
+          "p95": 1978.7,
+          "p99": 1978.7,
+          "p999": 1978.7
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870100229,
+      "firstHistogramAt": 1668870100229,
+      "lastCounterAt": 1668870108340,
+      "lastHistogramAt": 1668870108337,
+      "firstMetricAt": 1668870100229,
+      "lastMetricAt": 1668870108340,
+      "period": "1668870100000",
+      "summaries": {
+        "http.response_time": {
+          "min": 288,
+          "max": 1869,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 770,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1862,
+          "max": 1869,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1853,
+          "max": 1853,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 288,
+          "max": 288,
+          "count": 1,
+          "p50": 290.1,
+          "median": 290.1,
+          "p75": 290.1,
+          "p90": 290.1,
+          "p95": 290.1,
+          "p99": 290.1,
+          "p999": 290.1
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 288,
+          "max": 1869,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 770,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1862,
+          "max": 1869,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1853,
+          "max": 1853,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 288,
+          "max": 288,
+          "count": 1,
+          "p50": 290.1,
+          "median": 290.1,
+          "p75": 290.1,
+          "p90": 290.1,
+          "p95": 290.1,
+          "p99": 290.1,
+          "p999": 290.1
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870110499,
+      "firstHistogramAt": 1668870110499,
+      "lastCounterAt": 1668870119632,
+      "lastHistogramAt": 1668870119630,
+      "firstMetricAt": 1668870110499,
+      "lastMetricAt": 1668870119632,
+      "period": "1668870110000",
+      "summaries": {
+        "http.response_time": {
+          "min": 732,
+          "max": 3155,
+          "count": 7,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1901.1,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2159,
+          "max": 2159,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 744,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3155,
+          "max": 3155,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1883,
+          "max": 1883,
+          "count": 1,
+          "p50": 1901.1,
+          "median": 1901.1,
+          "p75": 1901.1,
+          "p90": 1901.1,
+          "p95": 1901.1,
+          "p99": 1901.1,
+          "p999": 1901.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1856,
+          "max": 1856,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 732,
+          "max": 3155,
+          "count": 7,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1901.1,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2159,
+          "max": 2159,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 744,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3155,
+          "max": 3155,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1883,
+          "max": 1883,
+          "count": 1,
+          "p50": 1901.1,
+          "median": 1901.1,
+          "p75": 1901.1,
+          "p90": 1901.1,
+          "p95": 1901.1,
+          "p99": 1901.1,
+          "p999": 1901.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1856,
+          "max": 1856,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870120377,
+      "firstHistogramAt": 1668870120377,
+      "lastCounterAt": 1668870128884,
+      "lastHistogramAt": 1668870128881,
+      "firstMetricAt": 1668870120377,
+      "lastMetricAt": 1668870128884,
+      "period": "1668870120000",
+      "summaries": {
+        "http.response_time": {
+          "min": 387,
+          "max": 2164,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 733,
+          "max": 744,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1865,
+          "max": 1865,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1858,
+          "max": 1858,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 387,
+          "max": 387,
+          "count": 1,
+          "p50": 383.8,
+          "median": 383.8,
+          "p75": 383.8,
+          "p90": 383.8,
+          "p95": 383.8,
+          "p99": 383.8,
+          "p999": 383.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2164,
+          "max": 2164,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 387,
+          "max": 2164,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 733,
+          "max": 744,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1865,
+          "max": 1865,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1858,
+          "max": 1858,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 387,
+          "max": 387,
+          "count": 1,
+          "p50": 383.8,
+          "median": 383.8,
+          "p75": 383.8,
+          "p90": 383.8,
+          "p95": 383.8,
+          "p99": 383.8,
+          "p999": 383.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2164,
+          "max": 2164,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 4,
+        "http.responses": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2,
+        "http.requests": 4,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870132056,
+      "firstHistogramAt": 1668870132056,
+      "lastCounterAt": 1668870137309,
+      "lastHistogramAt": 1668870137307,
+      "firstMetricAt": 1668870132056,
+      "lastMetricAt": 1668870137309,
+      "period": "1668870130000",
+      "summaries": {
+        "http.response_time": {
+          "min": 731,
+          "max": 3168,
+          "count": 4,
+          "p50": 1353.1,
+          "median": 1353.1,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3149,
+          "max": 3168,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 731,
+          "max": 1361,
+          "count": 2,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 731,
+          "max": 3168,
+          "count": 4,
+          "p50": 1353.1,
+          "median": 1353.1,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3149,
+          "max": 3168,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 731,
+          "max": 1361,
+          "count": 2,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870140478,
+      "firstHistogramAt": 1668870140478,
+      "lastCounterAt": 1668870148950,
+      "lastHistogramAt": 1668870148948,
+      "firstMetricAt": 1668870140478,
+      "lastMetricAt": 1668870148950,
+      "period": "1668870140000",
+      "summaries": {
+        "http.response_time": {
+          "min": 727,
+          "max": 3168,
+          "count": 8,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3168,
+          "max": 3168,
+          "count": 1,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 727,
+          "max": 734,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1831,
+          "max": 1838,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1847,
+          "max": 1847,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 727,
+          "max": 3168,
+          "count": 8,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3168,
+          "max": 3168,
+          "count": 1,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 727,
+          "max": 734,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1831,
+          "max": 1838,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1847,
+          "max": 1847,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 9,
+        "http.responses": 9,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2,
+        "http.requests": 9,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870150795,
+      "firstHistogramAt": 1668870150795,
+      "lastCounterAt": 1668870159905,
+      "lastHistogramAt": 1668870159903,
+      "firstMetricAt": 1668870150795,
+      "lastMetricAt": 1668870159905,
+      "period": "1668870150000",
+      "summaries": {
+        "http.response_time": {
+          "min": 267,
+          "max": 2141,
+          "count": 9,
+          "p50": 757.6,
+          "median": 757.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1844,
+          "max": 1846,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 753,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 267,
+          "max": 267,
+          "count": 1,
+          "p50": 267.8,
+          "median": 267.8,
+          "p75": 267.8,
+          "p90": 267.8,
+          "p95": 267.8,
+          "p99": 267.8,
+          "p999": 267.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2141,
+          "max": 2141,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1851,
+          "max": 1851,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 267,
+          "max": 2141,
+          "count": 9,
+          "p50": 757.6,
+          "median": 757.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1844,
+          "max": 1846,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 753,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 267,
+          "max": 267,
+          "count": 1,
+          "p50": 267.8,
+          "median": 267.8,
+          "p75": 267.8,
+          "p90": 267.8,
+          "p95": 267.8,
+          "p99": 267.8,
+          "p999": 267.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2141,
+          "max": 2141,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1851,
+          "max": 1851,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870161760,
+      "firstHistogramAt": 1668870161760,
+      "lastCounterAt": 1668870169639,
+      "lastHistogramAt": 1668870169636,
+      "firstMetricAt": 1668870161760,
+      "lastMetricAt": 1668870169639,
+      "period": "1668870160000",
+      "summaries": {
+        "http.response_time": {
+          "min": 732,
+          "max": 1901,
+          "count": 7,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1855,
+          "max": 1876,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 758,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1859,
+          "max": 1901,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 732,
+          "max": 1901,
+          "count": 7,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1855,
+          "max": 1876,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 758,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1859,
+          "max": 1901,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870170392,
+      "firstHistogramAt": 1668870170392,
+      "lastCounterAt": 1668870178821,
+      "lastHistogramAt": 1668870178819,
+      "firstMetricAt": 1668870170392,
+      "lastMetricAt": 1668870178821,
+      "period": "1668870170000",
+      "summaries": {
+        "http.response_time": {
+          "min": 277,
+          "max": 2182,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 733,
+          "max": 753,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1858,
+          "max": 1858,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1861,
+          "max": 1861,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 277,
+          "max": 277,
+          "count": 1,
+          "p50": 278.7,
+          "median": 278.7,
+          "p75": 278.7,
+          "p90": 278.7,
+          "p95": 278.7,
+          "p99": 278.7,
+          "p999": 278.7
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2182,
+          "max": 2182,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 277,
+          "max": 2182,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 733,
+          "max": 753,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1858,
+          "max": 1858,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1861,
+          "max": 1861,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 277,
+          "max": 277,
+          "count": 1,
+          "p50": 278.7,
+          "median": 278.7,
+          "p75": 278.7,
+          "p90": 278.7,
+          "p95": 278.7,
+          "p99": 278.7,
+          "p999": 278.7
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2182,
+          "max": 2182,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 5,
+        "http.responses": 5,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 3,
+        "http.requests": 5,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870181963,
+      "firstHistogramAt": 1668870181963,
+      "lastCounterAt": 1668870189838,
+      "lastHistogramAt": 1668870189836,
+      "firstMetricAt": 1668870181963,
+      "lastMetricAt": 1668870189838,
+      "period": "1668870180000",
+      "summaries": {
+        "http.response_time": {
+          "min": 734,
+          "max": 3186,
+          "count": 5,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3140,
+          "max": 3186,
+          "count": 3,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 734,
+          "max": 759,
+          "count": 2,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 734,
+          "max": 3186,
+          "count": 5,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3140,
+          "max": 3186,
+          "count": 3,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 734,
+          "max": 759,
+          "count": 2,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 6,
+        "http.responses": 6,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "http.requests": 6,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870190696,
+      "firstHistogramAt": 1668870190696,
+      "lastCounterAt": 1668870197908,
+      "lastHistogramAt": 1668870197905,
+      "firstMetricAt": 1668870190696,
+      "lastMetricAt": 1668870197908,
+      "period": "1668870190000",
+      "summaries": {
+        "http.response_time": {
+          "min": 358,
+          "max": 3158,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 854.2,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 747,
+          "max": 856,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3158,
+          "max": 3158,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 358,
+          "max": 358,
+          "count": 1,
+          "p50": 361.5,
+          "median": 361.5,
+          "p75": 361.5,
+          "p90": 361.5,
+          "p95": 361.5,
+          "p99": 361.5,
+          "p999": 361.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2182,
+          "max": 2182,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 358,
+          "max": 3158,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 854.2,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 747,
+          "max": 856,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3158,
+          "max": 3158,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 358,
+          "max": 358,
+          "count": 1,
+          "p50": 361.5,
+          "median": 361.5,
+          "p75": 361.5,
+          "p90": 361.5,
+          "p95": 361.5,
+          "p99": 361.5,
+          "p999": 361.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2182,
+          "max": 2182,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 6,
+        "http.responses": 6,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 3,
+        "http.requests": 6,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870201055,
+      "firstHistogramAt": 1668870201055,
+      "lastCounterAt": 1668870209882,
+      "lastHistogramAt": 1668870209879,
+      "firstMetricAt": 1668870201055,
+      "lastMetricAt": 1668870209882,
+      "period": "1668870200000",
+      "summaries": {
+        "http.response_time": {
+          "min": 741,
+          "max": 3227,
+          "count": 6,
+          "p50": 889.1,
+          "median": 889.1,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3147,
+          "max": 3227,
+          "count": 3,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 741,
+          "max": 892,
+          "count": 3,
+          "p50": 788.5,
+          "median": 788.5,
+          "p75": 788.5,
+          "p90": 788.5,
+          "p95": 788.5,
+          "p99": 788.5,
+          "p999": 788.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 741,
+          "max": 3227,
+          "count": 6,
+          "p50": 889.1,
+          "median": 889.1,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3147,
+          "max": 3227,
+          "count": 3,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 741,
+          "max": 892,
+          "count": 3,
+          "p50": 788.5,
+          "median": 788.5,
+          "p75": 788.5,
+          "p90": 788.5,
+          "p95": 788.5,
+          "p99": 788.5,
+          "p999": 788.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870211728,
+      "firstHistogramAt": 1668870211728,
+      "lastCounterAt": 1668870219527,
+      "lastHistogramAt": 1668870219525,
+      "firstMetricAt": 1668870211728,
+      "lastMetricAt": 1668870219527,
+      "period": "1668870210000",
+      "summaries": {
+        "http.response_time": {
+          "min": 729,
+          "max": 1869,
+          "count": 7,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1845,
+          "max": 1869,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 729,
+          "max": 732,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1855,
+          "max": 1861,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 729,
+          "max": 1869,
+          "count": 7,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1845,
+          "max": 1869,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 729,
+          "max": 732,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1855,
+          "max": 1861,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870220255,
+      "firstHistogramAt": 1668870220255,
+      "lastCounterAt": 1668870228837,
+      "lastHistogramAt": 1668870228835,
+      "firstMetricAt": 1668870220255,
+      "lastMetricAt": 1668870228837,
+      "period": "1668870220000",
+      "summaries": {
+        "http.response_time": {
+          "min": 384,
+          "max": 2153,
+          "count": 8,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 852,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1872,
+          "max": 1872,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1838,
+          "max": 1838,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 384,
+          "max": 384,
+          "count": 1,
+          "p50": 383.8,
+          "median": 383.8,
+          "p75": 383.8,
+          "p90": 383.8,
+          "p95": 383.8,
+          "p99": 383.8,
+          "p999": 383.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2153,
+          "max": 2153,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 384,
+          "max": 2153,
+          "count": 8,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 852,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1872,
+          "max": 1872,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1838,
+          "max": 1838,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 384,
+          "max": 384,
+          "count": 1,
+          "p50": 383.8,
+          "median": 383.8,
+          "p75": 383.8,
+          "p90": 383.8,
+          "p95": 383.8,
+          "p99": 383.8,
+          "p999": 383.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2153,
+          "max": 2153,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870231998,
+      "firstHistogramAt": 1668870231998,
+      "lastCounterAt": 1668870239899,
+      "lastHistogramAt": 1668870239895,
+      "firstMetricAt": 1668870231998,
+      "lastMetricAt": 1668870239899,
+      "period": "1668870230000",
+      "summaries": {
+        "http.response_time": {
+          "min": 728,
+          "max": 3161,
+          "count": 7,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1939.5,
+          "p95": 1939.5,
+          "p99": 1939.5,
+          "p999": 1939.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3161,
+          "max": 3161,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 753,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1879,
+          "max": 1929,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1853,
+          "max": 1853,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 728,
+          "max": 3161,
+          "count": 7,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1939.5,
+          "p95": 1939.5,
+          "p99": 1939.5,
+          "p999": 1939.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3161,
+          "max": 3161,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 753,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1879,
+          "max": 1929,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1853,
+          "max": 1853,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870240637,
+      "firstHistogramAt": 1668870240637,
+      "lastCounterAt": 1668870249927,
+      "lastHistogramAt": 1668870249925,
+      "firstMetricAt": 1668870240637,
+      "lastMetricAt": 1668870249927,
+      "period": "1668870240000",
+      "summaries": {
+        "http.response_time": {
+          "min": 437,
+          "max": 3163,
+          "count": 7,
+          "p50": 788.5,
+          "median": 788.5,
+          "p75": 1863.5,
+          "p90": 2276.1,
+          "p95": 2276.1,
+          "p99": 2276.1,
+          "p999": 2276.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 736,
+          "max": 784,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1861,
+          "max": 1861,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 437,
+          "max": 437,
+          "count": 1,
+          "p50": 432.7,
+          "median": 432.7,
+          "p75": 432.7,
+          "p90": 432.7,
+          "p95": 432.7,
+          "p99": 432.7,
+          "p999": 432.7
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2282,
+          "max": 2282,
+          "count": 1,
+          "p50": 2276.1,
+          "median": 2276.1,
+          "p75": 2276.1,
+          "p90": 2276.1,
+          "p95": 2276.1,
+          "p99": 2276.1,
+          "p999": 2276.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3163,
+          "max": 3163,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 437,
+          "max": 3163,
+          "count": 7,
+          "p50": 788.5,
+          "median": 788.5,
+          "p75": 1863.5,
+          "p90": 2276.1,
+          "p95": 2276.1,
+          "p99": 2276.1,
+          "p999": 2276.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 736,
+          "max": 784,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1861,
+          "max": 1861,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 437,
+          "max": 437,
+          "count": 1,
+          "p50": 432.7,
+          "median": 432.7,
+          "p75": 432.7,
+          "p90": 432.7,
+          "p95": 432.7,
+          "p99": 432.7,
+          "p999": 432.7
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2282,
+          "max": 2282,
+          "count": 1,
+          "p50": 2276.1,
+          "median": 2276.1,
+          "p75": 2276.1,
+          "p90": 2276.1,
+          "p95": 2276.1,
+          "p99": 2276.1,
+          "p999": 2276.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3163,
+          "max": 3163,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870250666,
+      "firstHistogramAt": 1668870250666,
+      "lastCounterAt": 1668870259791,
+      "lastHistogramAt": 1668870259789,
+      "firstMetricAt": 1668870250666,
+      "lastMetricAt": 1668870259791,
+      "period": "1668870250000",
+      "summaries": {
+        "http.response_time": {
+          "min": 730,
+          "max": 3171,
+          "count": 7,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 730,
+          "max": 738,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3171,
+          "max": 3171,
+          "count": 1,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1869,
+          "max": 1869,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1858,
+          "max": 1858,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 730,
+          "max": 3171,
+          "count": 7,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 730,
+          "max": 738,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3171,
+          "max": 3171,
+          "count": 1,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1869,
+          "max": 1869,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1858,
+          "max": 1858,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870261651,
+      "firstHistogramAt": 1668870261651,
+      "lastCounterAt": 1668870269479,
+      "lastHistogramAt": 1668870269476,
+      "firstMetricAt": 1668870261651,
+      "lastMetricAt": 1668870269479,
+      "period": "1668870260000",
+      "summaries": {
+        "http.response_time": {
+          "min": 732,
+          "max": 1873,
+          "count": 7,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1859,
+          "max": 1862,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 737,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1867,
+          "max": 1873,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 732,
+          "max": 1873,
+          "count": 7,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1859,
+          "max": 1862,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 737,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1867,
+          "max": 1873,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 6,
+        "http.responses": 6,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "http.requests": 6,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870270218,
+      "firstHistogramAt": 1668870270218,
+      "lastCounterAt": 1668870277434,
+      "lastHistogramAt": 1668870277433,
+      "firstMetricAt": 1668870270218,
+      "lastMetricAt": 1668870277434,
+      "period": "1668870270000",
+      "summaries": {
+        "http.response_time": {
+          "min": 317,
+          "max": 3165,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 772.9,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 737,
+          "max": 776,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 317,
+          "max": 317,
+          "count": 1,
+          "p50": 314.2,
+          "median": 314.2,
+          "p75": 314.2,
+          "p90": 314.2,
+          "p95": 314.2,
+          "p99": 314.2,
+          "p999": 314.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2194,
+          "max": 2194,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3165,
+          "max": 3165,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 317,
+          "max": 3165,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 772.9,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 737,
+          "max": 776,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 317,
+          "max": 317,
+          "count": 1,
+          "p50": 314.2,
+          "median": 314.2,
+          "p75": 314.2,
+          "p90": 314.2,
+          "p95": 314.2,
+          "p99": 314.2,
+          "p999": 314.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2194,
+          "max": 2194,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3165,
+          "max": 3165,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870280615,
+      "firstHistogramAt": 1668870280615,
+      "lastCounterAt": 1668870288504,
+      "lastHistogramAt": 1668870288502,
+      "firstMetricAt": 1668870280615,
+      "lastMetricAt": 1668870288504,
+      "period": "1668870280000",
+      "summaries": {
+        "http.response_time": {
+          "min": 270,
+          "max": 3196,
+          "count": 7,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 2186.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3180,
+          "max": 3196,
+          "count": 2,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 740,
+          "max": 746,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 270,
+          "max": 270,
+          "count": 1,
+          "p50": 267.8,
+          "median": 267.8,
+          "p75": 267.8,
+          "p90": 267.8,
+          "p95": 267.8,
+          "p99": 267.8,
+          "p999": 267.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2172,
+          "max": 2172,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 270,
+          "max": 3196,
+          "count": 7,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 2186.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3180,
+          "max": 3196,
+          "count": 2,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 740,
+          "max": 746,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 270,
+          "max": 270,
+          "count": 1,
+          "p50": 267.8,
+          "median": 267.8,
+          "p75": 267.8,
+          "p90": 267.8,
+          "p95": 267.8,
+          "p99": 267.8,
+          "p999": 267.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2172,
+          "max": 2172,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870291672,
+      "firstHistogramAt": 1668870291672,
+      "lastCounterAt": 1668870299482,
+      "lastHistogramAt": 1668870299480,
+      "firstMetricAt": 1668870291672,
+      "lastMetricAt": 1668870299482,
+      "period": "1668870290000",
+      "summaries": {
+        "http.response_time": {
+          "min": 734,
+          "max": 3166,
+          "count": 7,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3166,
+          "max": 3166,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 734,
+          "max": 737,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1856,
+          "max": 1871,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1859,
+          "max": 1859,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 734,
+          "max": 3166,
+          "count": 7,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3166,
+          "max": 3166,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 734,
+          "max": 737,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1856,
+          "max": 1871,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1859,
+          "max": 1859,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870300225,
+      "firstHistogramAt": 1668870300225,
+      "lastCounterAt": 1668870308681,
+      "lastHistogramAt": 1668870308679,
+      "firstMetricAt": 1668870300225,
+      "lastMetricAt": 1668870308681,
+      "period": "1668870300000",
+      "summaries": {
+        "http.response_time": {
+          "min": 401,
+          "max": 2040,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1901.1,
+          "p90": 1901.1,
+          "p95": 1901.1,
+          "p99": 1901.1,
+          "p999": 1901.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 735,
+          "max": 741,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1895,
+          "max": 2040,
+          "count": 2,
+          "p50": 1901.1,
+          "median": 1901.1,
+          "p75": 1901.1,
+          "p90": 1901.1,
+          "p95": 1901.1,
+          "p99": 1901.1,
+          "p999": 1901.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1887,
+          "max": 1887,
+          "count": 1,
+          "p50": 1901.1,
+          "median": 1901.1,
+          "p75": 1901.1,
+          "p90": 1901.1,
+          "p95": 1901.1,
+          "p99": 1901.1,
+          "p999": 1901.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 401,
+          "max": 401,
+          "count": 1,
+          "p50": 399.5,
+          "median": 399.5,
+          "p75": 399.5,
+          "p90": 399.5,
+          "p95": 399.5,
+          "p99": 399.5,
+          "p999": 399.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 401,
+          "max": 2040,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1901.1,
+          "p90": 1901.1,
+          "p95": 1901.1,
+          "p99": 1901.1,
+          "p999": 1901.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 735,
+          "max": 741,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1895,
+          "max": 2040,
+          "count": 2,
+          "p50": 1901.1,
+          "median": 1901.1,
+          "p75": 1901.1,
+          "p90": 1901.1,
+          "p95": 1901.1,
+          "p99": 1901.1,
+          "p999": 1901.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1887,
+          "max": 1887,
+          "count": 1,
+          "p50": 1901.1,
+          "median": 1901.1,
+          "p75": 1901.1,
+          "p90": 1901.1,
+          "p95": 1901.1,
+          "p99": 1901.1,
+          "p999": 1901.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 401,
+          "max": 401,
+          "count": 1,
+          "p50": 399.5,
+          "median": 399.5,
+          "p75": 399.5,
+          "p90": 399.5,
+          "p95": 399.5,
+          "p99": 399.5,
+          "p999": 399.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 6,
+        "http.responses": 6,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1,
+        "http.requests": 6,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870310890,
+      "firstHistogramAt": 1668870310890,
+      "lastCounterAt": 1668870319939,
+      "lastHistogramAt": 1668870319937,
+      "firstMetricAt": 1668870310890,
+      "lastMetricAt": 1668870319939,
+      "period": "1668870310000",
+      "summaries": {
+        "http.response_time": {
+          "min": 747,
+          "max": 3414,
+          "count": 6,
+          "p50": 820.7,
+          "median": 820.7,
+          "p75": 2231,
+          "p90": 3328.3,
+          "p95": 3328.3,
+          "p99": 3328.3,
+          "p999": 3328.3
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2209,
+          "max": 2209,
+          "count": 1,
+          "p50": 2231,
+          "median": 2231,
+          "p75": 2231,
+          "p90": 2231,
+          "p95": 2231,
+          "p99": 2231,
+          "p999": 2231
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 747,
+          "max": 827,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3296,
+          "max": 3414,
+          "count": 2,
+          "p50": 3328.3,
+          "median": 3328.3,
+          "p75": 3328.3,
+          "p90": 3328.3,
+          "p95": 3328.3,
+          "p99": 3328.3,
+          "p999": 3328.3
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 747,
+          "max": 3414,
+          "count": 6,
+          "p50": 820.7,
+          "median": 820.7,
+          "p75": 2231,
+          "p90": 3328.3,
+          "p95": 3328.3,
+          "p99": 3328.3,
+          "p999": 3328.3
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2209,
+          "max": 2209,
+          "count": 1,
+          "p50": 2231,
+          "median": 2231,
+          "p75": 2231,
+          "p90": 2231,
+          "p95": 2231,
+          "p99": 2231,
+          "p999": 2231
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 747,
+          "max": 827,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3296,
+          "max": 3414,
+          "count": 2,
+          "p50": 3328.3,
+          "median": 3328.3,
+          "p75": 3328.3,
+          "p90": 3328.3,
+          "p95": 3328.3,
+          "p99": 3328.3,
+          "p999": 3328.3
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 6,
+        "http.responses": 6,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1,
+        "http.requests": 6,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870323111,
+      "firstHistogramAt": 1668870323111,
+      "lastCounterAt": 1668870329029,
+      "lastHistogramAt": 1668870329027,
+      "firstMetricAt": 1668870323111,
+      "lastMetricAt": 1668870329029,
+      "period": "1668870320000",
+      "summaries": {
+        "http.response_time": {
+          "min": 733,
+          "max": 3171,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3171,
+          "max": 3171,
+          "count": 1,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 733,
+          "max": 736,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1850,
+          "max": 1850,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1850,
+          "max": 1850,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 733,
+          "max": 3171,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3171,
+          "max": 3171,
+          "count": 1,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 733,
+          "max": 736,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1850,
+          "max": 1850,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1850,
+          "max": 1850,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870330887,
+      "firstHistogramAt": 1668870330887,
+      "lastCounterAt": 1668870337415,
+      "lastHistogramAt": 1668870337413,
+      "firstMetricAt": 1668870330887,
+      "lastMetricAt": 1668870337415,
+      "period": "1668870330000",
+      "summaries": {
+        "http.response_time": {
+          "min": 272,
+          "max": 2151,
+          "count": 7,
+          "p50": 757.6,
+          "median": 757.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1858,
+          "max": 1858,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 736,
+          "max": 753,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1856,
+          "max": 1856,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 272,
+          "max": 272,
+          "count": 1,
+          "p50": 273.2,
+          "median": 273.2,
+          "p75": 273.2,
+          "p90": 273.2,
+          "p95": 273.2,
+          "p99": 273.2,
+          "p999": 273.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2151,
+          "max": 2151,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 272,
+          "max": 2151,
+          "count": 7,
+          "p50": 757.6,
+          "median": 757.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1858,
+          "max": 1858,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 736,
+          "max": 753,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1856,
+          "max": 1856,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 272,
+          "max": 272,
+          "count": 1,
+          "p50": 273.2,
+          "median": 273.2,
+          "p75": 273.2,
+          "p90": 273.2,
+          "p95": 273.2,
+          "p99": 273.2,
+          "p999": 273.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2151,
+          "max": 2151,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 6,
+        "http.responses": 6,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 3,
+        "http.requests": 6,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870340694,
+      "firstHistogramAt": 1668870340694,
+      "lastCounterAt": 1668870349285,
+      "lastHistogramAt": 1668870349281,
+      "firstMetricAt": 1668870340694,
+      "lastMetricAt": 1668870349285,
+      "period": "1668870340000",
+      "summaries": {
+        "http.response_time": {
+          "min": 735,
+          "max": 3278,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3177,
+          "max": 3278,
+          "count": 3,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 735,
+          "max": 744,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 735,
+          "max": 3278,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3177,
+          "max": 3278,
+          "count": 3,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 735,
+          "max": 744,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870351141,
+      "firstHistogramAt": 1668870351141,
+      "lastCounterAt": 1668870359696,
+      "lastHistogramAt": 1668870359693,
+      "firstMetricAt": 1668870351141,
+      "lastMetricAt": 1668870359696,
+      "period": "1668870350000",
+      "summaries": {
+        "http.response_time": {
+          "min": 733,
+          "max": 1869,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1855,
+          "max": 1869,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 733,
+          "max": 736,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1857,
+          "max": 1862,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 733,
+          "max": 1869,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1855,
+          "max": 1869,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 733,
+          "max": 736,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1857,
+          "max": 1862,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 2,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870361551,
+      "firstHistogramAt": 1668870361551,
+      "lastCounterAt": 1668870368378,
+      "lastHistogramAt": 1668870368375,
+      "firstMetricAt": 1668870361551,
+      "lastMetricAt": 1668870368378,
+      "period": "1668870360000",
+      "summaries": {
+        "http.response_time": {
+          "min": 276,
+          "max": 2159,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1855,
+          "max": 1855,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 734,
+          "max": 741,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1874,
+          "max": 1874,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 276,
+          "max": 283,
+          "count": 2,
+          "p50": 278.7,
+          "median": 278.7,
+          "p75": 278.7,
+          "p90": 278.7,
+          "p95": 278.7,
+          "p99": 278.7,
+          "p999": 278.7
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2159,
+          "max": 2159,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 276,
+          "max": 2159,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1855,
+          "max": 1855,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 734,
+          "max": 741,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1874,
+          "max": 1874,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 276,
+          "max": 283,
+          "count": 2,
+          "p50": 278.7,
+          "median": 278.7,
+          "p75": 278.7,
+          "p90": 278.7,
+          "p95": 278.7,
+          "p99": 278.7,
+          "p999": 278.7
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2159,
+          "max": 2159,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870370544,
+      "firstHistogramAt": 1668870370544,
+      "lastCounterAt": 1668870379098,
+      "lastHistogramAt": 1668870379096,
+      "firstMetricAt": 1668870370544,
+      "lastMetricAt": 1668870379098,
+      "period": "1668870370000",
+      "summaries": {
+        "http.response_time": {
+          "min": 733,
+          "max": 2166,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2166,
+          "max": 2166,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 733,
+          "max": 741,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1855,
+          "max": 1864,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1855,
+          "max": 1855,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 733,
+          "max": 2166,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2166,
+          "max": 2166,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 733,
+          "max": 741,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1855,
+          "max": 1864,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1855,
+          "max": 1855,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870380959,
+      "firstHistogramAt": 1668870380959,
+      "lastCounterAt": 1668870389362,
+      "lastHistogramAt": 1668870389360,
+      "firstMetricAt": 1668870380959,
+      "lastMetricAt": 1668870389362,
+      "period": "1668870380000",
+      "summaries": {
+        "http.response_time": {
+          "min": 275,
+          "max": 2168,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1855,
+          "max": 1861,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 730,
+          "max": 743,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1869,
+          "max": 1869,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 275,
+          "max": 275,
+          "count": 1,
+          "p50": 273.2,
+          "median": 273.2,
+          "p75": 273.2,
+          "p90": 273.2,
+          "p95": 273.2,
+          "p99": 273.2,
+          "p999": 273.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2168,
+          "max": 2168,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 275,
+          "max": 2168,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1855,
+          "max": 1861,
+          "count": 2,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 730,
+          "max": 743,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1869,
+          "max": 1869,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 275,
+          "max": 275,
+          "count": 1,
+          "p50": 273.2,
+          "median": 273.2,
+          "p75": 273.2,
+          "p90": 273.2,
+          "p95": 273.2,
+          "p99": 273.2,
+          "p999": 273.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2168,
+          "max": 2168,
+          "count": 1,
+          "p50": 2186.8,
+          "median": 2186.8,
+          "p75": 2186.8,
+          "p90": 2186.8,
+          "p95": 2186.8,
+          "p99": 2186.8,
+          "p999": 2186.8
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 5,
+        "http.responses": 5,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "http.requests": 5,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870390097,
+      "firstHistogramAt": 1668870390097,
+      "lastCounterAt": 1668870397940,
+      "lastHistogramAt": 1668870397938,
+      "firstMetricAt": 1668870390097,
+      "lastMetricAt": 1668870397940,
+      "period": "1668870390000",
+      "summaries": {
+        "http.response_time": {
+          "min": 731,
+          "max": 3200,
+          "count": 5,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 731,
+          "max": 735,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3164,
+          "max": 3200,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 731,
+          "max": 3200,
+          "count": 5,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 731,
+          "max": 735,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3164,
+          "max": 3200,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870401109,
+      "firstHistogramAt": 1668870401109,
+      "lastCounterAt": 1668870408927,
+      "lastHistogramAt": 1668870408926,
+      "firstMetricAt": 1668870401109,
+      "lastMetricAt": 1668870408927,
+      "period": "1668870400000",
+      "summaries": {
+        "http.response_time": {
+          "min": 263,
+          "max": 3172,
+          "count": 7,
+          "p50": 757.6,
+          "median": 757.6,
+          "p75": 2143.5,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3169,
+          "max": 3172,
+          "count": 2,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 736,
+          "max": 758,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 263,
+          "max": 263,
+          "count": 1,
+          "p50": 262.5,
+          "median": 262.5,
+          "p75": 262.5,
+          "p90": 262.5,
+          "p95": 262.5,
+          "p99": 262.5,
+          "p999": 262.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2127,
+          "max": 2127,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 263,
+          "max": 3172,
+          "count": 7,
+          "p50": 757.6,
+          "median": 757.6,
+          "p75": 2143.5,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3169,
+          "max": 3172,
+          "count": 2,
+          "p50": 3197.8,
+          "median": 3197.8,
+          "p75": 3197.8,
+          "p90": 3197.8,
+          "p95": 3197.8,
+          "p99": 3197.8,
+          "p999": 3197.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 736,
+          "max": 758,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 263,
+          "max": 263,
+          "count": 1,
+          "p50": 262.5,
+          "median": 262.5,
+          "p75": 262.5,
+          "p90": 262.5,
+          "p95": 262.5,
+          "p99": 262.5,
+          "p999": 262.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2127,
+          "max": 2127,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 6,
+        "http.responses": 6,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2,
+        "http.requests": 6,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870412191,
+      "firstHistogramAt": 1668870412191,
+      "lastCounterAt": 1668870419389,
+      "lastHistogramAt": 1668870419387,
+      "firstMetricAt": 1668870412191,
+      "lastMetricAt": 1668870419389,
+      "period": "1668870410000",
+      "summaries": {
+        "http.response_time": {
+          "min": 731,
+          "max": 3264,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1826.6,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3137,
+          "max": 3264,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 731,
+          "max": 736,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1845,
+          "max": 1845,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 731,
+          "max": 3264,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1826.6,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3137,
+          "max": 3264,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 731,
+          "max": 736,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1845,
+          "max": 1845,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870421238,
+      "firstHistogramAt": 1668870421238,
+      "lastCounterAt": 1668870429128,
+      "lastHistogramAt": 1668870429126,
+      "firstMetricAt": 1668870421238,
+      "lastMetricAt": 1668870429128,
+      "period": "1668870420000",
+      "summaries": {
+        "http.response_time": {
+          "min": 373,
+          "max": 3126,
+          "count": 7,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1849,
+          "max": 1849,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 727,
+          "max": 748,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 373,
+          "max": 373,
+          "count": 1,
+          "p50": 376.2,
+          "median": 376.2,
+          "p75": 376.2,
+          "p90": 376.2,
+          "p95": 376.2,
+          "p99": 376.2,
+          "p999": 376.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2146,
+          "max": 2146,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3126,
+          "max": 3126,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 373,
+          "max": 3126,
+          "count": 7,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1863.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1849,
+          "max": 1849,
+          "count": 1,
+          "p50": 1863.5,
+          "median": 1863.5,
+          "p75": 1863.5,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 727,
+          "max": 748,
+          "count": 3,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 742.6,
+          "p90": 742.6,
+          "p95": 742.6,
+          "p99": 742.6,
+          "p999": 742.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 373,
+          "max": 373,
+          "count": 1,
+          "p50": 376.2,
+          "median": 376.2,
+          "p75": 376.2,
+          "p90": 376.2,
+          "p95": 376.2,
+          "p99": 376.2,
+          "p999": 376.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2146,
+          "max": 2146,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3126,
+          "max": 3126,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870431117,
+      "firstHistogramAt": 1668870431117,
+      "lastCounterAt": 1668870439598,
+      "lastHistogramAt": 1668870439596,
+      "firstMetricAt": 1668870431117,
+      "lastMetricAt": 1668870439598,
+      "period": "1668870430000",
+      "summaries": {
+        "http.response_time": {
+          "min": 730,
+          "max": 1988,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1842,
+          "max": 1988,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 730,
+          "max": 747,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1834,
+          "max": 1839,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 730,
+          "max": 1988,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1842,
+          "max": 1988,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 730,
+          "max": 747,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1834,
+          "max": 1839,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870441437,
+      "firstHistogramAt": 1668870441437,
+      "lastCounterAt": 1668870447947,
+      "lastHistogramAt": 1668870447945,
+      "firstMetricAt": 1668870441437,
+      "lastMetricAt": 1668870447947,
+      "period": "1668870440000",
+      "summaries": {
+        "http.response_time": {
+          "min": 324,
+          "max": 2134,
+          "count": 7,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1839,
+          "max": 1839,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 735,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1842,
+          "max": 1842,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 324,
+          "max": 324,
+          "count": 1,
+          "p50": 327.1,
+          "median": 327.1,
+          "p75": 327.1,
+          "p90": 327.1,
+          "p95": 327.1,
+          "p99": 327.1,
+          "p999": 327.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2134,
+          "max": 2134,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 324,
+          "max": 2134,
+          "count": 7,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1839,
+          "max": 1839,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 735,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1842,
+          "max": 1842,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 324,
+          "max": 324,
+          "count": 1,
+          "p50": 327.1,
+          "median": 327.1,
+          "p75": 327.1,
+          "p90": 327.1,
+          "p95": 327.1,
+          "p99": 327.1,
+          "p999": 327.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2134,
+          "max": 2134,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 6,
+        "http.responses": 6,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2,
+        "http.requests": 6,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870451186,
+      "firstHistogramAt": 1668870451186,
+      "lastCounterAt": 1668870458364,
+      "lastHistogramAt": 1668870458361,
+      "firstMetricAt": 1668870451186,
+      "lastMetricAt": 1668870458364,
+      "period": "1668870450000",
+      "summaries": {
+        "http.response_time": {
+          "min": 726,
+          "max": 3238,
+          "count": 6,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3137,
+          "max": 3238,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 726,
+          "max": 734,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1835,
+          "max": 1835,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 726,
+          "max": 3238,
+          "count": 6,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3137,
+          "max": 3238,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 726,
+          "max": 734,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1835,
+          "max": 1835,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 7,
+        "http.responses": 7,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1,
+        "http.requests": 7,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870460203,
+      "firstHistogramAt": 1668870460203,
+      "lastCounterAt": 1668870468070,
+      "lastHistogramAt": 1668870468069,
+      "firstMetricAt": 1668870460203,
+      "lastMetricAt": 1668870468070,
+      "period": "1668870460000",
+      "summaries": {
+        "http.response_time": {
+          "min": 293,
+          "max": 3134,
+          "count": 7,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 2231,
+          "p95": 2231,
+          "p99": 2231,
+          "p999": 2231
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1839,
+          "max": 1839,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 727,
+          "max": 733,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 293,
+          "max": 293,
+          "count": 1,
+          "p50": 290.1,
+          "median": 290.1,
+          "p75": 290.1,
+          "p90": 290.1,
+          "p95": 290.1,
+          "p99": 290.1,
+          "p999": 290.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2230,
+          "max": 2230,
+          "count": 1,
+          "p50": 2231,
+          "median": 2231,
+          "p75": 2231,
+          "p90": 2231,
+          "p95": 2231,
+          "p99": 2231,
+          "p999": 2231
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3134,
+          "max": 3134,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 293,
+          "max": 3134,
+          "count": 7,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 2231,
+          "p95": 2231,
+          "p99": 2231,
+          "p999": 2231
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1839,
+          "max": 1839,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 727,
+          "max": 733,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 293,
+          "max": 293,
+          "count": 1,
+          "p50": 290.1,
+          "median": 290.1,
+          "p75": 290.1,
+          "p90": 290.1,
+          "p95": 290.1,
+          "p99": 290.1,
+          "p999": 290.1
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2230,
+          "max": 2230,
+          "count": 1,
+          "p50": 2231,
+          "median": 2231,
+          "p75": 2231,
+          "p90": 2231,
+          "p95": 2231,
+          "p99": 2231,
+          "p999": 2231
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3134,
+          "max": 3134,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 6,
+        "http.responses": 6,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2,
+        "http.requests": 6,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870471226,
+      "firstHistogramAt": 1668870471226,
+      "lastCounterAt": 1668870478406,
+      "lastHistogramAt": 1668870478404,
+      "firstMetricAt": 1668870471226,
+      "lastMetricAt": 1668870478406,
+      "period": "1668870470000",
+      "summaries": {
+        "http.response_time": {
+          "min": 725,
+          "max": 3156,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1826.6,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3137,
+          "max": 3156,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 725,
+          "max": 737,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1837,
+          "max": 1837,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 725,
+          "max": 3156,
+          "count": 6,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1826.6,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3137,
+          "max": 3156,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 725,
+          "max": 737,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1837,
+          "max": 1837,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870480237,
+      "firstHistogramAt": 1668870480237,
+      "lastCounterAt": 1668870488722,
+      "lastHistogramAt": 1668870488718,
+      "firstMetricAt": 1668870480237,
+      "lastMetricAt": 1668870488722,
+      "period": "1668870480000",
+      "summaries": {
+        "http.response_time": {
+          "min": 728,
+          "max": 1847,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1826.6,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1830,
+          "max": 1846,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 736,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1844,
+          "max": 1847,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 728,
+          "max": 1847,
+          "count": 8,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 1826.6,
+          "p90": 1863.5,
+          "p95": 1863.5,
+          "p99": 1863.5,
+          "p999": 1863.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1830,
+          "max": 1846,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 736,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1844,
+          "max": 1847,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 9,
+        "http.responses": 9,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2,
+        "http.requests": 9,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870490552,
+      "firstHistogramAt": 1668870490552,
+      "lastCounterAt": 1668870499622,
+      "lastHistogramAt": 1668870499619,
+      "firstMetricAt": 1668870490552,
+      "lastMetricAt": 1668870499622,
+      "period": "1668870490000",
+      "summaries": {
+        "http.response_time": {
+          "min": 314,
+          "max": 2133,
+          "count": 9,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1829,
+          "max": 1838,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 726,
+          "max": 730,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1839,
+          "max": 1839,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 314,
+          "max": 314,
+          "count": 1,
+          "p50": 314.2,
+          "median": 314.2,
+          "p75": 314.2,
+          "p90": 314.2,
+          "p95": 314.2,
+          "p99": 314.2,
+          "p999": 314.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2133,
+          "max": 2133,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 314,
+          "max": 2133,
+          "count": 9,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1829,
+          "max": 1838,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 726,
+          "max": 730,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1839,
+          "max": 1839,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 314,
+          "max": 314,
+          "count": 1,
+          "p50": 314.2,
+          "median": 314.2,
+          "p75": 314.2,
+          "p90": 314.2,
+          "p95": 314.2,
+          "p99": 314.2,
+          "p999": 314.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2133,
+          "max": 2133,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 4,
+        "http.responses": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2,
+        "http.requests": 4,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870502785,
+      "firstHistogramAt": 1668870502785,
+      "lastCounterAt": 1668870507405,
+      "lastHistogramAt": 1668870507403,
+      "firstMetricAt": 1668870502785,
+      "lastMetricAt": 1668870507405,
+      "period": "1668870500000",
+      "summaries": {
+        "http.response_time": {
+          "min": 732,
+          "max": 3163,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3139,
+          "max": 3163,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 737,
+          "count": 2,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 732,
+          "max": 3163,
+          "count": 4,
+          "p50": 742.6,
+          "median": 742.6,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3139,
+          "max": 3163,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 732,
+          "max": 737,
+          "count": 2,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 1,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 2,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870510537,
+      "firstHistogramAt": 1668870510537,
+      "lastCounterAt": 1668870518998,
+      "lastHistogramAt": 1668870518996,
+      "firstMetricAt": 1668870510537,
+      "lastMetricAt": 1668870518998,
+      "period": "1668870510000",
+      "summaries": {
+        "http.response_time": {
+          "min": 728,
+          "max": 3131,
+          "count": 8,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3131,
+          "max": 3131,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 735,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1833,
+          "max": 1844,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1837,
+          "max": 1837,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 728,
+          "max": 3131,
+          "count": 8,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3131,
+          "max": 3131,
+          "count": 1,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 735,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1833,
+          "max": 1844,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1837,
+          "max": 1837,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 9,
+        "http.responses": 9,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question/*/reply.codes.200": 2,
+        "http.requests": 9,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/question.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 1,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870520837,
+      "firstHistogramAt": 1668870520837,
+      "lastCounterAt": 1668870529868,
+      "lastHistogramAt": 1668870529866,
+      "firstMetricAt": 1668870520837,
+      "lastMetricAt": 1668870529868,
+      "period": "1668870520000",
+      "summaries": {
+        "http.response_time": {
+          "min": 273,
+          "max": 2133,
+          "count": 9,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1838,
+          "max": 1839,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 727,
+          "max": 733,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1837,
+          "max": 1837,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 273,
+          "max": 273,
+          "count": 1,
+          "p50": 273.2,
+          "median": 273.2,
+          "p75": 273.2,
+          "p90": 273.2,
+          "p95": 273.2,
+          "p99": 273.2,
+          "p999": 273.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2133,
+          "max": 2133,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 273,
+          "max": 2133,
+          "count": 9,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question/*/reply": {
+          "min": 1838,
+          "max": 1839,
+          "count": 2,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 727,
+          "max": 733,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/question": {
+          "min": 1837,
+          "max": 1837,
+          "count": 1,
+          "p50": 1826.6,
+          "median": 1826.6,
+          "p75": 1826.6,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 273,
+          "max": 273,
+          "count": 1,
+          "p50": 273.2,
+          "median": 273.2,
+          "p75": 273.2,
+          "p90": 273.2,
+          "p95": 273.2,
+          "p99": 273.2,
+          "p999": 273.2
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2133,
+          "max": 2133,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 4,
+        "http.responses": 4,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2,
+        "http.requests": 4,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 2
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870533009,
+      "firstHistogramAt": 1668870533009,
+      "lastCounterAt": 1668870537627,
+      "lastHistogramAt": 1668870537624,
+      "firstMetricAt": 1668870533009,
+      "lastMetricAt": 1668870537627,
+      "period": "1668870530000",
+      "summaries": {
+        "http.response_time": {
+          "min": 730,
+          "max": 3146,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3141,
+          "max": 3146,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 730,
+          "max": 731,
+          "count": 2,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 730,
+          "max": 3146,
+          "count": 4,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3141,
+          "max": 3146,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 730,
+          "max": 731,
+          "count": 2,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        }
+      }
+    },
+    {
+      "counters": {
+        "http.codes.200": 8,
+        "http.responses": 8,
+        "plugins.metrics-by-endpoint.POST:/auction/*/bid.codes.200": 2,
+        "http.requests": 8,
+        "plugins.metrics-by-endpoint.POST:/user/auth.codes.200": 3,
+        "plugins.metrics-by-endpoint.POST:/media.codes.200": 2,
+        "plugins.metrics-by-endpoint.POST:/auction.codes.200": 1
+      },
+      "rates": {
+        "http.request_rate": 1
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1668870540755,
+      "firstHistogramAt": 1668870540755,
+      "lastCounterAt": 1668870548802,
+      "lastHistogramAt": 1668870548800,
+      "firstMetricAt": 1668870540755,
+      "lastMetricAt": 1668870548802,
+      "period": "1668870540000",
+      "summaries": {
+        "http.response_time": {
+          "min": 267,
+          "max": 3142,
+          "count": 8,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 2143.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3127,
+          "max": 3142,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 736,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 267,
+          "max": 273,
+          "count": 2,
+          "p50": 267.8,
+          "median": 267.8,
+          "p75": 267.8,
+          "p90": 267.8,
+          "p95": 267.8,
+          "p99": 267.8,
+          "p999": 267.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2149,
+          "max": 2149,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      },
+      "histograms": {
+        "http.response_time": {
+          "min": 267,
+          "max": 3142,
+          "count": 8,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 2143.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction/*/bid": {
+          "min": 3127,
+          "max": 3142,
+          "count": 2,
+          "p50": 3134.5,
+          "median": 3134.5,
+          "p75": 3134.5,
+          "p90": 3134.5,
+          "p95": 3134.5,
+          "p99": 3134.5,
+          "p999": 3134.5
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/user/auth": {
+          "min": 728,
+          "max": 736,
+          "count": 3,
+          "p50": 727.9,
+          "median": 727.9,
+          "p75": 727.9,
+          "p90": 727.9,
+          "p95": 727.9,
+          "p99": 727.9,
+          "p999": 727.9
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/media": {
+          "min": 267,
+          "max": 273,
+          "count": 2,
+          "p50": 267.8,
+          "median": 267.8,
+          "p75": 267.8,
+          "p90": 267.8,
+          "p95": 267.8,
+          "p99": 267.8,
+          "p999": 267.8
+        },
+        "plugins.metrics-by-endpoint.response_time.POST:/auction": {
+          "min": 2149,
+          "max": 2149,
+          "count": 1,
+          "p50": 2143.5,
+          "median": 2143.5,
+          "p75": 2143.5,
+          "p90": 2143.5,
+          "p95": 2143.5,
+          "p99": 2143.5,
+          "p999": 2143.5
+        }
+      }
+    }
+  ]
+}

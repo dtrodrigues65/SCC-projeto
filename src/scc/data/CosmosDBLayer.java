@@ -25,6 +25,8 @@ public class CosmosDBLayer {
 	private static final String DB_KEY = System.getenv("COSMOS_DB_KEY");
 	//private static final String DB_NAME = "scctp1db";
 	private static final String DB_NAME = System.getenv("COSMOS_DB_NAME");
+
+	private static final boolean CACHE_FLAG = true;
 	
 	private static CosmosDBLayer instance;
 
@@ -68,48 +70,54 @@ public class CosmosDBLayer {
 		questions = db.getContainer("questions");
 	}
 
-	/* 
-	public CosmosItemResponse<Object> delUserById(String id) {
-		init();
-		PartitionKey key = new PartitionKey( id);
-		return users.deleteItem(id, key, new CosmosItemRequestOptions());
-	}
-	*/
-
 	public CosmosItemResponse<Object> delUser(UserDAO user) {
 		init();
-		try{
-            RedisCache.removeUserFromCache(user.getId());
-        }catch(Exception e){
-        }
+		if (CACHE_FLAG) {
+			try{
+				RedisCache.removeUserFromCache(user.getId());
+			}catch(Exception e){
+			}
+		}
 		return users.deleteItem(user, new CosmosItemRequestOptions());
 	}
 	
 	public CosmosItemResponse<UserDAO> putUser(UserDAO user) {
 		init();
-		try{
-            RedisCache.addUserToCache(user);
-        }catch(Exception e){
-        }
+		if (CACHE_FLAG) {
+			try{
+				RedisCache.addUserToCache(user);
+			}catch(Exception e){
+			}
+		}
 		return users.createItem(user);
 	}
 
 	public UserDAO getUserById(String id) {
 		init();
 		UserDAO user = null;
-		try{
-			user = RedisCache.getUserFromCache(id);
-		}catch(Exception e){
-			CosmosPagedIterable<UserDAO> u = users.queryItems("SELECT * FROM users WHERE users.id=\"" + id + "\"", new CosmosQueryRequestOptions(), UserDAO.class);
+		if (CACHE_FLAG) {
 			try{
-				user = u.iterator().next();
-			}catch(Exception e2){
-				throw new NotFoundException();
+				user = RedisCache.getUserFromCache(id);
+			}catch(Exception e){
+				CosmosPagedIterable<UserDAO> u = users.queryItems("SELECT * FROM users WHERE users.id=\"" + id + "\"", new CosmosQueryRequestOptions(), UserDAO.class);
+				try{
+					user = u.iterator().next();
+				}catch(Exception e2){
+					throw new NotFoundException();
+				}
+				RedisCache.addUserToCache(user);
 			}
-			RedisCache.addUserToCache(user);
+		} else {
+			CosmosPagedIterable<UserDAO> u = users.queryItems("SELECT * FROM users WHERE users.id=\"" + id + "\"", new CosmosQueryRequestOptions(), UserDAO.class);
+				try{
+					user = u.iterator().next();
+				}catch(Exception e2){
+					throw new NotFoundException();
+				}
 		}
 		return user;
 	}
+
 	/*
 	public CosmosPagedIterable<UserDAO> getUsers() {
 		init();
@@ -119,11 +127,13 @@ public class CosmosDBLayer {
 
 	public CosmosItemResponse<UserDAO> updateUser(UserDAO user) {
 		init();
-		try{
-			RedisCache.removeUserFromCache(user.getId());
-            RedisCache.addUserToCache(user);
-        }catch(Exception e){
-        }
+		if (CACHE_FLAG){
+			try{
+				RedisCache.removeUserFromCache(user.getId());
+				RedisCache.addUserToCache(user);
+			}catch(Exception e){
+			}
+		}
 		PartitionKey key = new PartitionKey(user.getId());
 		return users.replaceItem(user, user.getId(), key, new CosmosItemRequestOptions());
 	}
@@ -132,9 +142,11 @@ public class CosmosDBLayer {
 	
 	public CosmosItemResponse<AuctionDAO> putAuction(AuctionDAO auction) {
 		init();
-		try{
-			RedisCache.addAuctionToCache(auction);
-		}catch(Exception e){
+		if (CACHE_FLAG) {
+			try{
+				RedisCache.addAuctionToCache(auction);
+			}catch(Exception e){
+			}
 		}
 		return auctions.createItem(auction);
 	}
@@ -142,10 +154,12 @@ public class CosmosDBLayer {
 	
 	public CosmosItemResponse<AuctionDAO> updateAuction(AuctionDAO auction) {
 		init();
-		try{
-			RedisCache.removeAuctionFromCache(auction.getId());
-			RedisCache.addAuctionToCache(auction);
-		}catch(Exception e){
+		if (CACHE_FLAG) {
+			try{
+				RedisCache.removeAuctionFromCache(auction.getId());
+				RedisCache.addAuctionToCache(auction);
+			}catch(Exception e){
+			}
 		}
 		PartitionKey key = new PartitionKey(auction.getId());
         return auctions.replaceItem(auction, auction.getId(), key, new CosmosItemRequestOptions());
@@ -158,25 +172,36 @@ public class CosmosDBLayer {
 	public AuctionDAO getAuctionById(String id) {
 		init();
 		AuctionDAO auction = null;
-		try{
-			auction = RedisCache.getAuctionFromCache(id);
-		}catch(Exception e){
-			CosmosPagedIterable<AuctionDAO> a = auctions.queryItems("SELECT * FROM auctions WHERE auctions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
+		if (CACHE_FLAG) {
 			try{
-				auction = a.iterator().next();
-			}catch(Exception e2){
-				throw new NotFoundException();
+				auction = RedisCache.getAuctionFromCache(id);
+			}catch(Exception e){
+				CosmosPagedIterable<AuctionDAO> a = auctions.queryItems("SELECT * FROM auctions WHERE auctions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
+				try{
+					auction = a.iterator().next();
+				}catch(Exception e2){
+					throw new NotFoundException();
+				}
+				RedisCache.addAuctionToCache(auction);
 			}
-			RedisCache.addAuctionToCache(auction);
+		} else {
+			CosmosPagedIterable<AuctionDAO> a = auctions.queryItems("SELECT * FROM auctions WHERE auctions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), AuctionDAO.class);
+				try{
+					auction = a.iterator().next();
+				}catch(Exception e2){
+					throw new NotFoundException();
+				}
 		}
 		return auction;
 	}
 	
 	public CosmosItemResponse<BidDAO> putBid(BidDAO bid) {
 		init();
-		try{
-			RedisCache.addBidToCache(bid);
-		}catch(Exception e){
+		if (CACHE_FLAG) {
+			try{
+				RedisCache.addBidToCache(bid);
+			}catch(Exception e){
+			}
 		}
 		return bids.createItem(bid);
 	}
@@ -184,26 +209,37 @@ public class CosmosDBLayer {
 	public BidDAO getBidById(String id) {
 		init();
 		BidDAO bid = null;
-		try{
-			bid = RedisCache.getBidFromCache(id);
-		}catch(Exception e){
-			CosmosPagedIterable<BidDAO> b = bids.queryItems("SELECT * FROM bids WHERE bids.id=\"" + id + "\"", new CosmosQueryRequestOptions(), BidDAO.class);
+		if  (CACHE_FLAG) {
 			try{
-				bid = b.iterator().next();
-			}catch(Exception e2){
-				throw new NotFoundException();
+				bid = RedisCache.getBidFromCache(id);
+			}catch(Exception e){
+				CosmosPagedIterable<BidDAO> b = bids.queryItems("SELECT * FROM bids WHERE bids.id=\"" + id + "\"", new CosmosQueryRequestOptions(), BidDAO.class);
+				try{
+					bid = b.iterator().next();
+				}catch(Exception e2){
+					throw new NotFoundException();
+				}
+				RedisCache.addBidToCache(bid);
 			}
-			RedisCache.addBidToCache(bid);
+		} else {
+			CosmosPagedIterable<BidDAO> b = bids.queryItems("SELECT * FROM bids WHERE bids.id=\"" + id + "\"", new CosmosQueryRequestOptions(), BidDAO.class);
+				try{
+					bid = b.iterator().next();
+				}catch(Exception e2){
+					throw new NotFoundException();
+				}
 		}
 		return bid;
 	}
 
 	public CosmosItemResponse<BidDAO> updateBid(BidDAO bid) {
 		init();
-		try{
-			RedisCache.removeBidFromCache(bid.getId());
-			RedisCache.addBidToCache(bid);
-		}catch(Exception e){
+		if  (CACHE_FLAG){
+			try{
+				RedisCache.removeBidFromCache(bid.getId());
+				RedisCache.addBidToCache(bid);
+			}catch(Exception e){
+			}
 		}
 		PartitionKey key = new PartitionKey(bid.getId());
         return bids.replaceItem(bid, bid.getId(), key, new CosmosItemRequestOptions());
@@ -211,9 +247,11 @@ public class CosmosDBLayer {
 
 	public CosmosItemResponse<QuestionDAO> putQuestion(QuestionDAO q) {
 		init();
-		try{
-			RedisCache.addQuestionToCache(q);
-		}catch(Exception e){
+		if (CACHE_FLAG)  {
+			try{
+				RedisCache.addQuestionToCache(q);
+			}catch(Exception e){
+			}
 		}
 		return questions.createItem(q);
 	}
@@ -221,16 +259,26 @@ public class CosmosDBLayer {
 	public QuestionDAO getQuestionById (String id) {
 		init();
 		QuestionDAO question = null;
-		try{
-			question = RedisCache.getQuestionFromCache(id);
-		}catch(Exception e){
+		if(CACHE_FLAG) {
+			try{
+				question = RedisCache.getQuestionFromCache(id);
+			}catch(Exception e){
+				CosmosPagedIterable<QuestionDAO> b = questions.queryItems("SELECT * FROM questions WHERE questions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), QuestionDAO.class);
+				try{
+					question = b.iterator().next();
+				}catch(Exception e2){
+					throw new NotFoundException();
+				}
+				RedisCache.addQuestionToCache(question);
+			}
+		}
+		else {
 			CosmosPagedIterable<QuestionDAO> b = questions.queryItems("SELECT * FROM questions WHERE questions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), QuestionDAO.class);
 			try{
 				question = b.iterator().next();
 			}catch(Exception e2){
 				throw new NotFoundException();
 			}
-			RedisCache.addQuestionToCache(question);
 		}
 		return question;
 	}

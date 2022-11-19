@@ -165,8 +165,12 @@ public class AuctionResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public QuestionDAO putReply (@CookieParam("scc:session") Cookie session, @PathParam("auctionId") String auctionId, @PathParam("questionId") String questionId, QuestionDAO reply) {
 		try {
+			
 			UsersResource.checkCookieUser(session, reply.getUserId());
 			AuctionDAO a = CosmosDBLayer.getInstance().getAuctionById(auctionId);
+			if (!reply.getUserId().equals(a.getUser())) {
+				throw new NotAuthorizedException(reply.getUserId()) ;
+			}
 			String uid = UUID.randomUUID().toString();
 			reply.setId(uid);
 			CosmosItemResponse<QuestionDAO> res = CosmosDBLayer.getInstance().putQuestion(reply);

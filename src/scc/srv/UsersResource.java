@@ -16,6 +16,7 @@ import scc.utils.Login;
 import scc.utils.Session;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -87,10 +88,26 @@ public class UsersResource{
 	@GET
 	@Path("/{id}/listAuctions")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Set<String> listAuctions(@PathParam("id") String id) {
+	public Set<AuctionDAO> listAuctions(@PathParam("id") String id, @QueryParam("status") String status) {
 		UserDAO u = CosmosDBLayer.getInstance().getUserById(id);
 		Set<String> setAuctions = u.getAuctionsIds();
-		return setAuctions;
+		Set <AuctionDAO> aux = new HashSet<AuctionDAO>();
+		if (status != null ){
+			if(status.equals("OPEN")) {
+				for (String s : setAuctions)  {
+					AuctionDAO a = CosmosDBLayer.getInstance().getAuctionById(s);
+					if (a.getStatus().equals("OPEN")) {
+						aux.add(a);
+					}
+				}
+			}
+		} else {
+			for (String s : setAuctions)  {
+				AuctionDAO a = CosmosDBLayer.getInstance().getAuctionById(s);
+				aux.add(a);	
+			}
+		}
+		return aux;
 	}
 
 	@POST

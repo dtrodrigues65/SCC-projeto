@@ -114,7 +114,6 @@ scenarios:
               json:
                 user: "{{ auctionUser }}"
                 pwd: "{{ auctionUserPwd }}"
-              #ifTrue: "reply"
           - post:                          # New reply     
               url: "/auction/{{ auctionId }}/question/{{ questionId }}/reply"
               name: "POST:/auction/*/question/*/reply"
@@ -124,7 +123,6 @@ scenarios:
               json:
                 userId: "{{ auctionUser }}"
                 text: "{{ reply }}"
-              #ifTrue: "reply"
           count: "{{ numQuestions }}"   
         count: "{{ numAuctions }}"
 

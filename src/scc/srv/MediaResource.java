@@ -66,7 +66,7 @@ public class MediaResource {
 	public byte[] download(@PathParam("id") String id) {
 		BinaryData data = null;
 		try {
-			BlobClient blob = containerClient.getBlobClient(id);
+			BlobClient blob = containerClient.getBlobClient(id /*+ ".jpeg"*/);
 			data = blob.downloadContent();
 		} //catch (NotFoundException e) {
 		//	System.out.println("Not found");

@@ -224,7 +224,7 @@ public class CosmosDBLayer {
 		try{
 			question = RedisCache.getQuestionFromCache(id);
 		}catch(Exception e){
-			CosmosPagedIterable<QuestionDAO> b = bids.queryItems("SELECT * FROM questions WHERE questions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), QuestionDAO.class);
+			CosmosPagedIterable<QuestionDAO> b = questions.queryItems("SELECT * FROM questions WHERE questions.id=\"" + id + "\"", new CosmosQueryRequestOptions(), QuestionDAO.class);
 			try{
 				question = b.iterator().next();
 			}catch(Exception e2){

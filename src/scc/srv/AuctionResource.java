@@ -73,6 +73,18 @@ public class AuctionResource {
 		}
 	}
 
+	/* 
+	@GET
+	@Path("/{auctionId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public AuctionDAO getAuction(@PathParam("auctionId") String id) {
+		try {
+			return CosmosDBLayer.getInstance().getAuctionById(id);
+		} catch( Exception e) {
+			throw new BadRequestException();
+		}
+	}*/
+
 	@POST
 	@Path("/{auctionId}/bid")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -80,33 +92,31 @@ public class AuctionResource {
 	public BidDAO createBid( @CookieParam("scc:session") Cookie session, @PathParam("auctionId") String id, BidDAO bid){
 		try  {
 			UsersResource.checkCookieUser(session, bid.getUser());
-			String uid = UUID.randomUUID().toString();
-        	bid.setId(uid);
+			String uid = UUID.randomUUID().toString(); 
+        	bid.setId(uid); 
 			AuctionDAO a =  CosmosDBLayer.getInstance().getAuctionById(id);
-			Set<String> auctionsBid = a.getBidIds();
+			Set<String> auctionsBid = a.getBidIds(); 
 			UserDAO u = CosmosDBLayer.getInstance().getUserById(bid.getUser());
-			Set<String> userBids = u.getBidsIds();
+			Set<String> userBids = u.getBidsIds(); 
 			CosmosItemResponse<BidDAO> res = null;
 			if(Float.valueOf(bid.getValue()) > Float.valueOf(a.getMinPrice()) && a.getStatus().equals("OPEN")){
-				auctionsBid.add(bid.getId());
-				a.setBidIds(auctionsBid);
-				a.setMinPrice(bid.getValue());
-				a.setLastBid(uid);
-				resAuction (CosmosDBLayer.getInstance().updateAuction(a));
-				userBids.add(uid);
-				u.setBidsIds(userBids);
-				UsersResource.updateUser(session, u);
-				res = resBid (CosmosDBLayer.getInstance().putBid(bid));
-				
-
+				auctionsBid.add(bid.getId()); 
+				a.setBidIds(auctionsBid); 
+				a.setMinPrice(bid.getValue()); 
+				a.setLastBid(uid); 
+				resAuction (CosmosDBLayer.getInstance().updateAuction(a)); 
+				userBids.add(uid); 
+				u.setBidsIds(userBids); 
+				UsersResource.updateUser(session, u); 
+				res = resBid (CosmosDBLayer.getInstance().putBid(bid)); 
 			}
-			//if(res == null) {
-				//throw new BadRequestException("Bid is less than min price");
-			//}
+			/*if(res == null) { //if bid is not valid
+				return bid;
+			}*/
 			return res.getItem();
 		} catch( NotAuthorizedException e) {
-			throw e;
-		} catch( Exception e) {
+			throw new NotAuthorizedException(e) ;
+		} catch( Exception ex) {
 			throw new NotFoundException();
 		}
 	}
@@ -174,8 +184,9 @@ public class AuctionResource {
 		}
 	}
 
-	@GET
+	
 	@Path("/{auctionId}/question")
+	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Set<QuestionDAO> listQuestions (@PathParam("auctionId") String id) {
 		Set<QuestionDAO> aux = new HashSet<QuestionDAO>();
@@ -187,6 +198,7 @@ public class AuctionResource {
 		}
 		return aux;
 	}
+
 
 	@GET
 	@Path("/aboutToClose")
@@ -205,6 +217,7 @@ public class AuctionResource {
 		}
 		return setAuctionsClose;
 	}
+	
 
 	private CosmosItemResponse<AuctionDAO> resAuction (CosmosItemResponse<AuctionDAO> res) {
 		if (res.getStatusCode() < 300) {

@@ -37,4 +37,4 @@ scenarios:
               photoId: "{{ imageId }}"
               auctionsIds: [] ##################este teste tem de ser mudado para fazer comply com os ids das bids e das auctions
             afterResponse: "updateUserReply"    # capture result and store in file
-        count: 1
+        count: 5

@@ -1,6 +1,5 @@
 package scc.data;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -79,15 +78,5 @@ public class UserDAO {
 	public void setBidsIds(Set<String> bidsIds) {
 		this.bidsIds = bidsIds;
 	}
-	/* 
-	public User toUser() {
-		return new User( id, name, pwd, photoId, auctionsIds == null ? null : Arrays.copyOf(auctionsIds,auctionsIds.size()));
-	}*/
-	/* 
-	@Override
-	public String toString() {
-		return "UserDAO [_rid=" + _rid + ", _ts=" + _ts + ", id=" + id + ", name=" + name + ", pwd=" + pwd
-				+ ", photoId=" + photoId + ", channelIds=" + Arrays.toString(auctionsIds) + "]";
-	}*/
 
 }

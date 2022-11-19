@@ -14,7 +14,7 @@ scenarios:
   - name: 'Delete users'
     weight: 1
     flow:
-      - loop:                            # let's delete 5 users - loop ... count
+      - loop:                            # let's delete 1 users - loop ... count
         - function: "selectUserSkewed"
         - post:                          # First: login as a user
               url: "/user/auth"
@@ -24,8 +24,6 @@ scenarios:
               json:
                 user: "{{ user }}"
                 pwd: "{{ pwd }}"
-        #ELIMINAMOS ISTO PORQUE NAO ERA NECESSARIO
-        #- function: "delUser"            # Delete the user 
         - delete:
             url: "/user"
             headers:

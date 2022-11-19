@@ -7,7 +7,6 @@ import java.util.List;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
-import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
@@ -29,7 +28,6 @@ import com.azure.storage.blob.models.BlobItem;
 @Path("/media")
 public class MediaResource {
 
-	///String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=scctp1storage;AccountKey=QqhHmfz4oH+OgB7vZ26+2VvzoqlqoV7zJt1ioGy36D5zyKJMf5iyjKp/nBx1+iQJX9zZ/378/SJA+AStSmShug==;EndpointSuffix=core.windows.net";
 	String storageConnectionString = System.getenv("BLOB_STORE_CONNECTION");
 	BlobContainerClient containerClient = new BlobContainerClientBuilder().connectionString(storageConnectionString).containerName("images").buildClient();
 
@@ -66,11 +64,9 @@ public class MediaResource {
 	public byte[] download(@PathParam("id") String id) {
 		BinaryData data = null;
 		try {
-			BlobClient blob = containerClient.getBlobClient(id /*+ ".jpeg"*/);
+			BlobClient blob = containerClient.getBlobClient(id);
 			data = blob.downloadContent();
-		} //catch (NotFoundException e) {
-		//	System.out.println("Not found");
-		//}
+		}
 		 catch(Exception e){
 			throw new WebApplicationException(Status.NOT_FOUND);
 		}

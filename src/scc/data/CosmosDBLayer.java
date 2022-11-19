@@ -19,11 +19,8 @@ import jakarta.ws.rs.NotFoundException;
 import scc.cache.RedisCache;
 
 public class CosmosDBLayer {
-	//private static final String CONNECTION_URL = "https://scctp1cosmosdb.documents.azure.com:443/";
 	private static final String CONNECTION_URL = System.getenv("COSMOS_CONNECTION_URL");
-	//private static final String DB_KEY = "aRQeHIFXAlwba2rPs34mPitOB98ALBOyPnlbAmZbPjDyT6d4KIRgKqJHOhABaXixhqdRUybgue37JR4ve95GLw==";
 	private static final String DB_KEY = System.getenv("COSMOS_DB_KEY");
-	//private static final String DB_NAME = "scctp1db";
 	private static final String DB_NAME = System.getenv("COSMOS_DB_NAME");
 
 	private static final boolean CACHE_FLAG = true;
@@ -37,9 +34,7 @@ public class CosmosDBLayer {
 		CosmosClient client = new CosmosClientBuilder()
 		         .endpoint(CONNECTION_URL)
 		         .key(DB_KEY)
-		         //.directMode()
 		         .gatewayMode()		
-		         // replace by .directMode() for better performance
 		         .consistencyLevel(ConsistencyLevel.SESSION)
 		         .connectionSharingAcrossClientsEnabled(true)
 		         .contentResponseOnWriteEnabled(true)
@@ -118,12 +113,6 @@ public class CosmosDBLayer {
 		return user;
 	}
 
-	/*
-	public CosmosPagedIterable<UserDAO> getUsers() {
-		init();
-		return users.queryItems("SELECT * FROM users ", new CosmosQueryRequestOptions(), UserDAO.class);
-	}
-	*/
 
 	public CosmosItemResponse<UserDAO> updateUser(UserDAO user) {
 		init();

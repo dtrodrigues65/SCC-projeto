@@ -1,6 +1,5 @@
 package scc.data;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -59,11 +58,5 @@ public class User {
 	public void setBidsIds(Set<String> bidsIds) {
 		this.bidsIds = bidsIds;
 	}
-	/* 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", pwd=" + pwd + ", photoId=" + photoId + ", auctionsIds="
-				+ Arrays.toString(auctionsIds) + "]";
-	}*/
 
 }

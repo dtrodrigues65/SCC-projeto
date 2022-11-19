@@ -15,7 +15,7 @@ import java.util.Set;
 import com.microsoft.azure.functions.*;
 
 /**
- * Azure Functions with Timer Trigger.
+ * Azure Function with Timer Trigger to cache flush
  */
 public class TimerFunction {
     @FunctionName("cache-flush")
@@ -29,6 +29,9 @@ public class TimerFunction {
 		}
     }
 
+	/**
+ * Azure Function with Timer Trigger to close auctions
+ 	*/
 	@FunctionName("close-auction")
 	public void closeAuctionFunction( @TimerTrigger(name= "closeauction",
 										schedule = "0 */1 * * * *")

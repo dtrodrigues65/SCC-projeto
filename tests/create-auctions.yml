@@ -11,7 +11,7 @@ config:
     maxBids : 5 # maximum number of bids to generate for each new auction
     maxQuestions : 5 # maximum number of questions to generate for each new auction
   phases:
-  - name: "Create auctions"    # Create channels
+  - name: "Create auctions"    # Create auctions
     duration: 1
     arrivalCount: 1
 

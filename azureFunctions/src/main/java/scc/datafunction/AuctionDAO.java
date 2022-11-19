@@ -156,22 +156,4 @@ public class AuctionDAO {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    /* 
-    @Override
-    public String toString() {
-        return "AuctionDAO{" +
-                "_rid='" + _rid + '\'' +
-                ", _ts='" + _ts + '\'' +
-                ", id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", photoId='" + photoId + '\'' +
-                ", user='" + user + '\'' +
-                ", endTime='" + endTime + '\'' +
-                ", minPrice='" + minPrice + '\'' +
-                ", winnerBid='" + winnerBid + '\'' +
-                ", status='" + status + '\'' +
-                '}';
-    }*/
 }

@@ -131,19 +131,4 @@ public class Auction {
         this.status = status;
     }
 
-    /*
-    @Override
-    public String toString() {
-        return "Auction{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", photoId='" + photoId + '\'' +
-                ", user='" + user + '\'' +
-                ", endTime='" + endTime + '\'' +
-                ", minPrice='" + minPrice + '\'' +
-                ", winnerBid='" + winnerBid + '\'' +
-                ", status='" + status + '\'' +
-                '}';
-    }*/
 }

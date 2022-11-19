@@ -14,8 +14,6 @@ public class RedisCache {
 
 	private static final String RedisHostname = System.getenv("REDIS_URL");
 	private static final String RedisKey = System.getenv("REDIS_KEY");
-	//private static final String RedisHostname = "scctp1cache.redis.cache.windows.net";
-	//private static final String RedisKey = "vgvsJ2tONf2NdY8XinpUUyn4loKKV11VjAzCaEFqx50=";
 	
 	private static JedisPool instance;
 	

@@ -1,11 +1,8 @@
 package scc.srv;
 
-import com.azure.storage.blob.models.BlobItem;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.NewCookie;
 import jakarta.ws.rs.core.Response;
-import redis.clients.jedis.Jedis;
 import scc.cache.RedisCache;
 import scc.data.*;
 import jakarta.ws.rs.core.Cookie;
@@ -15,9 +12,7 @@ import com.azure.cosmos.models.CosmosItemResponse;
 import scc.utils.Login;
 import scc.utils.Session;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 

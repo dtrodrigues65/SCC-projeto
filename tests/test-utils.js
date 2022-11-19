@@ -8,7 +8,6 @@ module.exports = {
   processUploadReply,
   genNewUser,
   genNewUserReply,
- //delUser,
   delUserReply,
   updateUser,
   updateUserReply,
@@ -153,17 +152,6 @@ function genNewUserReply(requestParams, response, context, ee, next) {
     return next()
 }
 
-//ELIMINAMOS ISTO PORQUE NAO ERA NECESSARIO
-/*
-function delUser(context,events,done){
-	console.log(context.vars.user)
-	//let u = users.sample()
-	//context.vars.id = u.id
-	//context.vars.name = u.name
-	//context.vars.pwd = u.pwd
-	return done()	
-}*/
-
 function delUserReply(requestParams, response, context, ee, next){
 	if( response.statusCode >= 200 && response.statusCode < 300 && response.body.length > 0)  { 
 		let u = JSON.parse(response.body)
@@ -189,12 +177,8 @@ function findUser( id){
 function updateUser(context,events,done) {
 	const first = `${Faker.name.firstName()}`
 	const last = `${Faker.name.lastName()}`
-	//let u = users.sample()
-	//context.vars.id = u.id
 	let u = findUser(context.vars.user)
 	context.vars.name = first + " " + last
-	//AQUI NAO O DEIXAMOS MUDAR A PASS MAS PODE SER PRECISO
-	//context.vars.pwd = `${Faker.internet.password()}`
 	context.vars.imageId = u.photoId
 	return done()
 }
@@ -205,7 +189,6 @@ function updateUserReply(requestParams, response, context, ee, next) {
 		let index = users.indexOf(u0)		
 		users.splice(index, 1)
 		let u = JSON.parse( response.body)
-		console.log(u) //APAGARRRRRRRRRRRRRRR
 		users.push(u)
 		fs.writeFileSync('users.data', JSON.stringify(users));
 	}
@@ -228,7 +211,6 @@ function genNewAuction(context, events, done) {
 	context.vars.title = `${Faker.commerce.productName()}`
 	context.vars.description = `${Faker.commerce.productDescription()}`
 	context.vars.minimumPrice = `${Faker.commerce.price(1,999)}`
-	//context.vars.bidValue = context.vars.minimumPrice
 	var maxBids = 5
 	if( typeof context.vars.maxBids !== 'undefined')
 		maxBids = context.vars.maxBids;
@@ -238,15 +220,9 @@ function genNewAuction(context, events, done) {
 	var d = new Date();
 	d.setTime(Date.now() + random( 300000));
 	context.vars.endTime = d.toISOString();
-	//if( Math.random() > 0.2) { 
-		context.vars.status = "OPEN";
-		context.vars.numBids = random( maxBids);
-		context.vars.numQuestions = random( maxQuestions);
-	//} else {
-	//	context.vars.status = "CLOSED";
-	//	delete context.vars.numBids;
-	//	delete context.vars.numQuestions;
-	//}
+	context.vars.status = "OPEN";
+	context.vars.numBids = random( maxBids);
+	context.vars.numQuestions = random( maxQuestions);
 	return done()
 }
 
@@ -263,8 +239,6 @@ function genNewAuction(context, events, done) {
 	}
 	context.vars.value = context.vars.bidValue +10;
 	context.vars.bidValue = context.vars.bidValue + 10
-	//context.vars.auctionId = context.vars.auctionCapture.id
-	//context.vars.auctionUser = context.vars.auctionCapture.user
 	return done()
 }
 
@@ -280,100 +254,25 @@ function genNewAuction(context, events, done) {
  * Generate data for a new reply
  */
  function genNewQuestionReply(context, events, done) {
-	//delete context.vars.reply;
-	//if( Math.random() > 0.5) {
-	//	if( typeof context.vars.auctionUser !== 'undefined') {
-			var user = findUser( context.vars.auctionUser);
-	//		if( user != null) {
-				context.vars.auctionUserPwd = user.pwd;
-				context.vars.reply = `${Faker.lorem.paragraph()}`;
-	//		}
-	//	}
-	//} 
+	var user = findUser( context.vars.auctionUser);
+	context.vars.auctionUserPwd = user.pwd;
+	context.vars.reply = `${Faker.lorem.paragraph()}`;
 	return done()
 }
 
 /**
  * Decide whether to reply
- * assuming: user context.vars.user; question context.vars.questionOne
  */
  function decideToReply(context, events, done) {
-	//delete context.vars.reply;
-	//if( typeof context.vars.user !== 'undefined' && typeof context.vars.questionOne !== 'undefined' && 
-	//		context.vars.questionOne.user === context.vars.user && 
-	//		typeof context.vars.questionOne.reply !== String &&
-	//		Math.random() > 0) {
-		if (context.vars.questionOne.length == 0) {
-			delete context.vars.questionId
-		} else {
-			context.vars.questionId = context.vars.questionOne.sample().id
-		}
-		context.vars.reply = `${Faker.lorem.paragraph()}`;
-	//}
-	return done()
-}
-
-function decideNextAction(context, events, done) {
-	//delete context.vars.auctionId;
-	let rnd = Math.random()
-	if( rnd < 0.225)
-		context.vars.nextAction = 2; // browsing user
-	else if( rnd < 0.3)
-		context.vars.nextAction = 3; // create an auction
-	else if( rnd < 0.8)
-		context.vars.nextAction = 4; // checking auction
-	else if( rnd < 0.95)
-		context.vars.nextAction = 5; // do a bid
-	else
-		context.vars.nextAction = 6; // post a message
-	/*if( context.vars.nextAction == 2) {
-		if( Math.random() < 0.5)
-			context.vars.user2 = context.vars.user
-		else {
-			let user = users.sample()
-			context.vars.user2 = user.id
-		}
+	if (context.vars.questionOne.length == 0) {
+		delete context.vars.questionId
+	} else {
+		context.vars.questionId = context.vars.questionOne.sample().id
 	}
-	if( context.vars.nextAction == 3) {
-		context.vars.title = `${Faker.commerce.productName()}`
-		context.vars.description = `${Faker.commerce.productDescription()}`
-		context.vars.minimumPrice = `${Faker.commerce.price()}`
-		context.vars.bidValue = context.vars.minimumPrice + random(3)
-		var d = new Date();
-		d.setTime(Date.now() + 60000 + random( 300000));
-		context.vars.endTime = d.toISOString();
-		context.vars.status = "OPEN";
-	}
-	if( context.vars.nextAction >= 4) {
-		let r = random(3)
-		var auct = null
-		if( r == 2 && typeof context.vars.auctionsLst == 'undefined')
-			r = 1;
-		if( r == 2)
-  			auct = context.vars.auctionsLst.sample();
-		else if( r == 1)
-  			auct = context.vars.recentLst.sample();
-		else if( r == 0)
-  			auct = context.vars.popularLst.sample();
-		if( auct == null) {
-			return decideNextAction(context,events,done);
-		}
-		context.vars.auctionId = auct.id
-		context.vars.imageId = auct.imageId
-	}
-	if( context.vars.nextAction == 5)
-		context.vars.text = `${Faker.lorem.paragraph()}`;
-	*/
+	context.vars.reply = `${Faker.lorem.paragraph()}`;
 	return done()
 }
 
 
-/**
- * Return true with probability 80% 
- */
- function random80(context, next) {
-	const continueLooping = Math.random() < 0.8
-	return next(continueLooping);
-  }
   
 

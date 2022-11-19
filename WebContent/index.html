@@ -8,12 +8,20 @@
 <H1>Root for SCC backend</H1>
 
 <p>This is a dummy page for SCC backend.</p>
-<p>Use the following links for the initial resources:</p>
+<p>Examples of endpoints that can be called:</p>
 <ul>
-<li><a href="/rest/ctrl/version">/rest/ctrl/version</a>
-</li>
-<li>/rest/media/{id}
-</li>
+<li><a href="/rest/ctrl/version">/rest/ctrl/version</a></li>
+<li>/rest/media/{id}</li>
+<li>/rest/user/ : POST, DELETE, PUT users</li>
+<li>/rest/user/{id}/listAuctions : GET the list of auctions of the given user</li>
+<li>/rest/user/auth : POST user's session</li>
+<li>/rest/auction/ : POST, PUT auctions</li>
+<li>/rest/auction/{auctionId}/bid : POST bid on the given auction, GET list of bids of the given auction</li>
+<li>/rest/auction/{auctionId}/question : POST question on the given auction, GET list of questions of given auction</li>
+<li>/rest/auction/{auctionId}/question/{questionId}/reply : POST a reply on the given question of the given auction</li>
+<li><a href="/rest/auction/aboutToClose">/rest/auction/aboutToClose</a> : GET list of auctions that are about to close in less than 30 min</li>
+<li>/rest/auction/cognitive/{searchQuery} : GET the top 5 searches on the description of the auctions for the string searchQuery using azure cognitive search</li>
+<li>/rest/auction/cognitive/related/{auctionId} : GET the top 5 related auctions to the given auction using azure cognitive search</li>
 </ul>
 </body>
 </html>

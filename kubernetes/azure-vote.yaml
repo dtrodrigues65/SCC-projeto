@@ -1,0 +1,119 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: a55185-55226-56153-scctp2-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: a55185-55226-56153-scctp2-back
+  template:
+    metadata:
+      labels:
+        app: a55185-55226-56153-scctp2-back
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: a55185-55226-56153-scctp2-back
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 6379
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: a55185-55226-56153-scctp2-back
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: a55185-55226-56153-scctp2-back
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: a55185-55226-56153-scctp2-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: a55185-55226-56153-scctp2-front
+  template:
+    metadata:
+      labels:
+        app: a55185-55226-56153-scctp2-front
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: a55185-55226-56153-scctp2-front
+        image: jmurta15/scc2223-app2
+        volumeMounts:
+        - mountPath: "/mnt/vol"
+          name: mediavolume
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 8080
+        env:
+        - name: REDIS
+          value: "a55185-55226-56153-scctp2-back"
+        - name: REDIS_KEY
+          value: "vgvsJ2tONf2NdY8XinpUUyn4loKKV11VjAzCaEFqx50="
+        - name: COSMOS_DB_NAME
+          value: "scctp1db"
+        - name: BLOB_STORE_CONNECTION
+          value: "DefaultEndpointsProtocol=https;AccountName=scctp1storage;AccountKey=QqhHmfz4oH+OgB7vZ26+2VvzoqlqoV7zJt1ioGy36D5zyKJMf5iyjKp/nBx1+iQJX9zZ/378/SJA+AStSmShug==;EndpointSuffix=core.windows.net"
+        - name: QUERY_KEY
+          value: "8z8d9qAJ7ITtiu1b54FGm1ZbKPyfBrGaXPsQWpAypPAzSeCcUdl9"
+        - name: REDIS_URL
+          value: "scctp1cache.redis.cache.windows.net"
+        - name: COSMOS_CONNECTION_URL 
+          value: "https://scctp1cosmosdb.documents.azure.com:443/"
+        - name: COSMOS_DB_KEY
+          value: "aRQeHIFXAlwba2rPs34mPitOB98ALBOyPnlbAmZbPjDyT6d4KIRgKqJHOhABaXixhqdRUybgue37JR4ve95GLw=="
+      volumes:
+      - name: mediavolume
+        persistentVolumeClaim:
+          claimName: azure-managed-disk
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: a55185-55226-56153-scctp2-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080 
+  selector:
+    app: a55185-55226-56153-scctp2-front
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-managed-disk
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: azurefile
+  resources:
+    requests:
+      storage: 1Gi

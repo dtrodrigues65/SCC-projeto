@@ -1,0 +1,129 @@
+config:
+  target: 'http://20.103.239.42/scc2223-tp1-1.0/rest'
+  http:
+    timeout: 10
+  plugins:
+    metrics-by-endpoint:
+      useOnlyRequestNames: true  # new mode to aggregate metrics in artillery
+  processor: "./test-utils.js"
+  variables:
+    numAuctions : 30
+    maxBids : 5 # maximum number of bids to generate for each new auction
+    maxQuestions : 5 # maximum number of questions to generate for each new auction
+  phases:
+  - name: "Create auctions"    # Create auctions
+    duration: 1
+    arrivalCount: 1
+
+scenarios:
+  - name: 'Create auctions'
+    weight: 1
+    flow:
+      - loop:                            # let's create numAuctions auctions - loop ... count
+        - function: "selectUserSkewed"
+        - post:                          # First: login as a user
+            url: "/user/auth"
+            name: "POST:/user/auth"
+            headers:
+              Content-Type: application/json
+            json:
+              user: "{{ user }}"
+              pwd: "{{ pwd }}"
+        - function: "genNewAuction"
+        - post:                          # First: post image for the auction
+            url: "/media"
+            name: "POST:/media"
+            headers:
+              Content-Type: application/octet-stream
+              Accept: application/json
+            beforeRequest: "uploadImageBody"
+            capture: 
+              regexp: "(.+)"
+              as: "imageId"              # capture the reply as image id to be used in uction creation
+        - post:                          # Create auction
+            url: "/auction"
+            name: "POST:/auction"
+            headers:
+              Content-Type: application/json
+              Accept: application/json
+            capture:                     # Capturing auction id and store it in variable auctionId
+              - json: "$.id"
+                as: "auctionId"
+              - json: "$.user"
+                as: "auctionUser"
+            json:
+              description: "{{ description }}"
+              title: "{{ title }}"
+              user: "{{ user }}"
+              photoId: "{{ imageId }}"
+              endTime: "{{ endTime }}"
+              minPrice: "{{ minimumPrice }}"
+              status: "{{ status }}"
+        - loop:                          # Let's add numBids bids to the auction
+          - function: "selectUserSkewed"
+          - function: "genNewBid"
+          - post:                         
+              url: "/user/auth"
+              name: "POST:/user/auth"
+              headers:
+                Content-Type: application/json
+              json:
+                user: "{{ user }}"
+                pwd: "{{ pwd }}"
+          - post:                          # New bid     
+              url: "/auction/{{ auctionId }}/bid"
+              name: "POST:/auction/*/bid"
+              headers:
+                Content-Type: application/json
+                Accept: application/json
+              json:
+                auctionId: "{{ auctionId }}"
+                user: "{{ user }}"
+                value: "{{ value }}"
+          count: "{{ numBids }}"   
+        - loop:                          # Let's add numQuestions questions to the auction
+          - function: "selectUserSkewed"
+          - function: "genNewQuestion"
+          - post:                         
+              url: "/user/auth"
+              name: "POST:/user/auth"
+              headers:
+                Content-Type: application/json
+              json:
+                user: "{{ user }}"
+                pwd: "{{ pwd }}"
+          - post:                          # New question     
+              url: "/auction/{{ auctionId }}/question"
+              name: "POST:/auction/*/question"
+              headers:
+                Content-Type: application/json
+                Accept: application/json
+              capture:                     # Capturing question id and store it in variable questionId
+              - json: "$.id"
+                as: "questionId"
+              json:
+                auctionId: "{{ auctionId }}"
+                userId: "{{ user }}"
+                text: "{{ text }}"
+          - function: "genNewQuestionReply"
+          - post:                         
+              url: "/user/auth"
+              name: "POST:/user/auth"
+              headers:
+                Content-Type: application/json
+              json:
+                user: "{{ auctionUser }}"
+                pwd: "{{ auctionUserPwd }}"
+          - post:                          # New reply     
+              url: "/auction/{{ auctionId }}/question/{{ questionId }}/reply"
+              name: "POST:/auction/*/question/*/reply"
+              headers:
+                Content-Type: application/json
+                Accept: application/json
+              json:
+                userId: "{{ auctionUser }}"
+                text: "{{ reply }}"
+          count: "{{ numQuestions }}"   
+        count: "{{ numAuctions }}"
+
+

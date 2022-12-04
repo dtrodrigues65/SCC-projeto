@@ -1,0 +1,41 @@
+config:
+  target: 'http://20.103.239.42/scc2223-tp1-1.0/rest'
+  plugins:
+    metrics-by-endpoint: {}
+  processor: "./test-utils.js"
+  variables:
+     metricsProcessEndpoint : "myProcessEndpoint"  # function used to aggregate endpoints for statistics
+  phases:
+  - name: "Create users"    # Create users
+    duration: 1
+    arrivalCount: 1
+
+scenarios:
+  - name: 'Create users'
+    weight: 1
+    flow:
+      - loop:                            # let's create 20 users - loop ... count
+        - post:                          # First: post image for the user
+            url: "/media"
+            headers:
+              Content-Type: application/octet-stream
+              Accept: application/json
+            beforeRequest: "uploadImageBody"
+            capture: 
+              regexp: "(.+)"
+              as: "imageId"              # capture the reply as image id to be used in user creation
+            afterResponse: "processUploadReply"
+        - function: "genNewUser"         # Generate the needed information for the user
+        - post:
+            url: "/user"
+            headers:
+              Content-Type: application/json
+              Accept: application/json
+            json:
+              id: "{{ id }}"
+              name: "{{ name }}"
+              pwd: "{{ pwd }}"
+              photoId: "{{ imageId }}"
+              auctionsIds: []
+            afterResponse: "genNewUserReply"    # capture result and store in file
+        count: 20

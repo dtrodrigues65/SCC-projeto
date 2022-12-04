@@ -1,0 +1,40 @@
+config:
+  target: 'http://20.103.239.42/scc2223-tp1-1.0/rest'
+  plugins:
+    metrics-by-endpoint: {}
+  processor: "./test-utils.js"
+  variables:
+     metricsProcessEndpoint : "myProcessEndpoint"  # function used to aggregate endpoints for statistics
+  phases:
+  - name: "Update users"    # Delete users
+    duration: 1
+    arrivalCount: 1
+
+scenarios:
+  - name: 'Update users'
+    weight: 1
+    flow:
+      - loop:                            # let's update 5 users - loop ... count
+        - function: "selectUserSkewed"
+        - post:                          # First: login as a user
+              url: "/user/auth"
+              name: "POST:/user/auth"
+              headers:
+                Content-Type: application/json
+              json:
+                user: "{{ user }}"
+                pwd: "{{ pwd }}"
+        - function: "updateUser"            # Update the user
+        - put:
+            url: "/user"
+            headers:
+              Content-Type: application/json
+              Accept: application/json
+            json:
+              id: "{{ user }}"
+              name: "{{ name }}"
+              pwd: "{{ pwd }}"
+              photoId: "{{ imageId }}"
+              auctionsIds: []
+            afterResponse: "updateUserReply"    # capture result and store in file
+        count: 5

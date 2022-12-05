@@ -1,5 +1,5 @@
 config:
-  target: 'http://20.103.239.42/scc2223-tp1-1.0/rest'
+  target: 'http://20.71.87.66/scc2223-tp1-1.0/rest'
   http:
     timeout: 10
   plugins:
@@ -7,9 +7,9 @@ config:
       useOnlyRequestNames: true  # new mode to aggregate metrics in artillery
   processor: "./test-utils.js"
   variables:
-    numAuctions : 30
-    maxBids : 5 # maximum number of bids to generate for each new auction
-    maxQuestions : 5 # maximum number of questions to generate for each new auction
+    numAuctions : 10
+    maxBids : 2 # maximum number of bids to generate for each new auction
+    maxQuestions : 2 # maximum number of questions to generate for each new auction
   phases:
   - name: "Create auctions"    # Create auctions
     duration: 1

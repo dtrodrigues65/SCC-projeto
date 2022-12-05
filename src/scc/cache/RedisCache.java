@@ -14,9 +14,10 @@ import jakarta.ws.rs.core.NewCookie;
 
 
 public class RedisCache {
-	private static final String RedisHostname = System.getenv("REDIS_URL");
-	private static final String RedisKey = System.getenv("REDIS_KEY");
-	
+	//private static final String RedisHostname = System.getenv("REDIS_URL");
+	//private static final String RedisKey = System.getenv("REDIS_KEY");
+	private static final String RedisHostname = System.getenv("REDIS");
+
 	private static JedisPool instance;
 	
 	public synchronized static JedisPool getCachePool() {
@@ -31,7 +32,7 @@ public class RedisCache {
 		poolConfig.setTestWhileIdle(true);
 		poolConfig.setNumTestsPerEvictionRun(3);
 		poolConfig.setBlockWhenExhausted(true);
-		instance = new JedisPool(poolConfig, RedisHostname, 6380, 1000, RedisKey, true);
+		instance = new JedisPool(poolConfig, RedisHostname, 6379);
 		return instance;
 	}
 

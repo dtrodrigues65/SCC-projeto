@@ -2,8 +2,14 @@ package scc.srv;
 
 import scc.utils.Hash;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -28,9 +34,9 @@ import com.azure.storage.blob.models.BlobItem;
 @Path("/media")
 public class MediaResource {
 
-	String storageConnectionString = System.getenv("BLOB_STORE_CONNECTION");
-	BlobContainerClient containerClient = new BlobContainerClientBuilder().connectionString(storageConnectionString).containerName("images").buildClient();
-
+	//String storageConnectionString = System.getenv("BLOB_STORE_CONNECTION");
+	//BlobContainerClient containerClient = new BlobContainerClientBuilder().connectionString(storageConnectionString).containerName("images").buildClient();
+	private static final String PATH = "/mnt/vol/";
 
 	/**
 	 * Post a new image.The id of the image is its hash.
@@ -42,11 +48,14 @@ public class MediaResource {
 	public String upload(byte[] contents) {
 		String key = Hash.of(contents);
 		try {
-			BinaryData data = BinaryData.fromBytes(contents);
-			BlobClient blob = containerClient.getBlobClient(key+".jpeg");
-			blob.upload(data);
-			System.out.println("File updloaded : file" + key);
-
+			//BinaryData data = BinaryData.fromBytes(contents);
+			//BlobClient blob = containerClient.getBlobClient(key+".jpeg");
+			//blob.upload(data);
+			//System.out.println("File updloaded : file" + key);
+			File f = new File (PATH + key+".jpeg" );
+			FileOutputStream fos = new FileOutputStream(f);
+			fos.write(contents);
+			fos.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -64,8 +73,12 @@ public class MediaResource {
 	public byte[] download(@PathParam("id") String id) {
 		BinaryData data = null;
 		try {
-			BlobClient blob = containerClient.getBlobClient(id);
-			data = blob.downloadContent();
+			//BlobClient blob = containerClient.getBlobClient(id);
+			//data = blob.downloadContent();
+			File f = new File (PATH +id);
+			FileInputStream fis = new FileInputStream(f);
+			data = BinaryData.fromBytes(fis.readAllBytes());
+			fis.close();
 		}
 		 catch(Exception e){
 			throw new WebApplicationException(Status.NOT_FOUND);
@@ -79,13 +92,16 @@ public class MediaResource {
 	@GET
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<String> list() {
-		List<String> aux = new ArrayList<String>();
+	public Set<String> list() {
+		/*List<String> aux = new ArrayList<String>();
 		for (BlobItem blobItem : containerClient.listBlobs()) {
 			System.out.println("\t" + blobItem.getName());
 			aux.add(blobItem.getName());
 		}
-		return aux;
+		return aux;*/
+		return Stream.of(new File(PATH).listFiles())
+      		.filter(file -> !file.isDirectory())
+      		.map(File::getName)
+      		.collect(Collectors.toSet());
 	}
-
 }

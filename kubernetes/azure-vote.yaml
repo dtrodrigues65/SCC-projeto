@@ -59,7 +59,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: a55185-55226-56153-scctp2-front
-        image: jmurta15/scc2223-app2
+        image: jmurta15/scc2223-app5
         volumeMounts:
         - mountPath: "/mnt/vol"
           name: mediavolume
@@ -75,16 +75,16 @@ spec:
         env:
         - name: REDIS
           value: "a55185-55226-56153-scctp2-back"
-        - name: REDIS_KEY
-          value: "vgvsJ2tONf2NdY8XinpUUyn4loKKV11VjAzCaEFqx50="
+        #- name: REDIS_KEY
+         # value: "vgvsJ2tONf2NdY8XinpUUyn4loKKV11VjAzCaEFqx50="
         - name: COSMOS_DB_NAME
           value: "scctp1db"
         - name: BLOB_STORE_CONNECTION
           value: "DefaultEndpointsProtocol=https;AccountName=scctp1storage;AccountKey=QqhHmfz4oH+OgB7vZ26+2VvzoqlqoV7zJt1ioGy36D5zyKJMf5iyjKp/nBx1+iQJX9zZ/378/SJA+AStSmShug==;EndpointSuffix=core.windows.net"
-        - name: QUERY_KEY
+        - name: QUERY_KEY #pode se tirar se nao se fizer nada
           value: "8z8d9qAJ7ITtiu1b54FGm1ZbKPyfBrGaXPsQWpAypPAzSeCcUdl9"
-        - name: REDIS_URL
-          value: "scctp1cache.redis.cache.windows.net"
+        #- name: REDIS_URL
+         # value: "scctp1cache.redis.cache.windows.net"
         - name: COSMOS_CONNECTION_URL 
           value: "https://scctp1cosmosdb.documents.azure.com:443/"
         - name: COSMOS_DB_KEY

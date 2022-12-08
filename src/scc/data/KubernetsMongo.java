@@ -4,13 +4,11 @@ import org.bson.conversions.Bson;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.*;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.InsertOneResult;
 import org.bson.Document;
@@ -49,11 +47,7 @@ public class KubernetsMongo {
 		if( db != null)
 			return;
 		db = client.getDatabase("mydb");
-		//auctions = db.getContainer("auctions");
 		users = db.getCollection("users");
-		//bids = db.getContainer("bids");
-		//questions = db.getContainer("questions");
-        //faltam adicionar estas variaveis, vou uma a uma
 	}
 
     public DeleteResult delUser(UserDAO user) {

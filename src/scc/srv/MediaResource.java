@@ -34,8 +34,6 @@ import com.azure.storage.blob.models.BlobItem;
 @Path("/media")
 public class MediaResource {
 
-	//String storageConnectionString = System.getenv("BLOB_STORE_CONNECTION");
-	//BlobContainerClient containerClient = new BlobContainerClientBuilder().connectionString(storageConnectionString).containerName("images").buildClient();
 	private static final String PATH = "/mnt/vol/";
 
 	/**
@@ -48,10 +46,6 @@ public class MediaResource {
 	public String upload(byte[] contents) {
 		String key = Hash.of(contents);
 		try {
-			//BinaryData data = BinaryData.fromBytes(contents);
-			//BlobClient blob = containerClient.getBlobClient(key+".jpeg");
-			//blob.upload(data);
-			//System.out.println("File updloaded : file" + key);
 			File f = new File (PATH + key+".jpeg" );
 			FileOutputStream fos = new FileOutputStream(f);
 			fos.write(contents);
@@ -73,8 +67,6 @@ public class MediaResource {
 	public byte[] download(@PathParam("id") String id) {
 		BinaryData data = null;
 		try {
-			//BlobClient blob = containerClient.getBlobClient(id);
-			//data = blob.downloadContent();
 			File f = new File (PATH +id);
 			FileInputStream fis = new FileInputStream(f);
 			data = BinaryData.fromBytes(fis.readAllBytes());
@@ -93,12 +85,6 @@ public class MediaResource {
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Set<String> list() {
-		/*List<String> aux = new ArrayList<String>();
-		for (BlobItem blobItem : containerClient.listBlobs()) {
-			System.out.println("\t" + blobItem.getName());
-			aux.add(blobItem.getName());
-		}
-		return aux;*/
 		return Stream.of(new File(PATH).listFiles())
       		.filter(file -> !file.isDirectory())
       		.map(File::getName)
